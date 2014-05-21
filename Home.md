@@ -25,7 +25,7 @@ You can use the nightly builds of EF7 in your traditional .NET applications. Thi
 To use a relational database provider, you will need to target .NET 4.5.1.
 
 ### Using EF7 in Windows Store/Phone Applications
-We’re still working thru some issues in order to make EF7 work on Windows Phone and Universal applications. 
+We’re still working thru some issues in order to make EF7 work on Windows Phone and Universal applications. This is due to some of our dependencies not yet supporting the wpa81 target platform.
 
 The current nightly builds can be used in Windows Store applications though, see [Using EF7 in Windows Phone/Store Applications](https://github.com/aspnet/EntityFramework/wiki/Using-EF7-in-Windows-Phone-Store-Applications) for instructions.
 
