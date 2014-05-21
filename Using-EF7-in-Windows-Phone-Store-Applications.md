@@ -1,5 +1,8 @@
 # Using EF7 in Windows Phone Store Applications
 
+## Phone / Universal Not Yet Supported
+We’re still working thru some issues in order to make EF7 work on Windows Phone and Universal applications. This is due to some of our dependencies not yet supporting the wpa81 target platform.
+
 ## Add Nightly NuGet Feed
 You need to configure NuGet to use the feed that contains nightly builds.
 
