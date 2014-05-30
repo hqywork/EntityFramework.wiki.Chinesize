@@ -33,3 +33,6 @@ The current nightly builds can be used in Windows Store applications though, see
 EF7 can be used in applications built using ASP.NET vNext. You can find samples, documentation and getting started instructions for ASP.NET vNext at the [Home](https://github.com/aspnet/Home) repo. 
 
 You can see a sample MVC application that uses EF7 for data access in the [MusicStore](https://github.com/aspnet/MusicStore) repo. There are also a couple of micro samples in the [Entropy](https://github.com/aspnet/Entropy) repo – Data.SqlServer and Data.InMemory.
+
+## Additional Information
+- [Design Meeting Notes](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes)
