@@ -100,6 +100,7 @@ namespace Sample
                 if(!db.Database.Exists())
                 {
                     db.Database.Create();
+                    db.Database.CreateTables();
                 }
 
                 db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/adonet" });
