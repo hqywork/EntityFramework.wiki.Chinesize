@@ -20,11 +20,11 @@ build initialize
 
 This will download the [NuGet](http://www.nuget.org/) packages that we depend on, and reference them from the projects.
 
-Now, you should be able to open the solution in Visual Studio.
+You should be able to open the solution in Visual Studio now.
 
 ### Run tests
 
-Our tests are written using [xUnit.net 2.0](https://github.com/xunit/xunit), and can be run using your favorite runner. We recommend the either [xUnit.net runner for Visual Studio 2013](http://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099) or [TestDriven.Net](http://www.testdriven.net/).
+Our tests are written using [xUnit.net 2.0](https://github.com/xunit/xunit), and can be run using your favorite runner. We recommend either the [xUnit.net runner for Visual Studio 2013](http://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099) or [TestDriven.Net](http://www.testdriven.net/).
 
 ## Build from Command Prompt
 You can also build and run tests from Command Prompt using the following.
