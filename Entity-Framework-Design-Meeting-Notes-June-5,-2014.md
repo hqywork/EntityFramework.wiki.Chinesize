@@ -125,7 +125,7 @@ modelBuilder.Entity("Blogging.Models.Review")
     .Key("UserId", "PostId");
 ```
 
-#### DECISIONS: Property facet APIs
+#### DECISION: Property facet APIs
 
 We made the following decisions for methods to specify facets of properties. 
 
@@ -148,4 +148,68 @@ We made the following decisions for methods to specify facets of properties.
 | .HasColumnOrder(3) | We'll demote this to a migrations concept as we'll have a deterministic ordering of properties in metadata. The migrations pipeline will have a nice default for the order it puts columns in (i.e. PK, scalars, FK). This is actually better because specifying an order at the moment only affects initial migration/creation since all new columns added to an existing table are added at the end. ```[Column(Order = 123)]``` will only remain meaningful for composite key ordering. |
 
 
-### Relationship configuration
+### DECISION: Try out a Collection/Reference/ForeignKey based relationship API
+
+We've had lots of feedback that folks find the current relationship API in EF6 to be confusing. One of the reasons is that the following concepts are all merged into the HasXYZ /WithXWY methods:
+* Pairing up navigation properties
+* Specifying cardinality
+* Identifying the principal/dependent end of the relationship 
+
+For EF7 we are going to try out a simplified API that uses the same Collection/Reference names that we have on ChangeTracker API. You can start by specifying either end of the relationship or the FK. Whether the relationship is required or not will be handled by a separate Required method.
+
+Here are some examples of the new syntax.
+
+```
+modelBuilder.Entity<Post>() 
+    .Reference(p => p.Blog) 
+    .Collection(b => b.Posts)
+    .Required();
+```
+
+```
+modelBuilder.Entity<Post>() 
+    .Reference(p => p.Blog) 
+    .Collection(b => b.Posts) 
+    .ForeignKey(p => p.TheBlogId);
+```
+
+```
+modelBuilder.Entity<Post>()
+    .ForeignKey<Blog>(p => p.TheBlogId)
+    .Reference(p => p.Blog) 
+    .Collection(b => b.Posts);
+```
+
+For one-to-one relationships you will need to start with a call to ForeignKey so that we know which end of the relationship is the dependent.
+
+```
+modelBuilder.Entity<BlogInfo>()
+    .ForeignKey<Blog>(p => p.BlogId)
+    .Reference(i => i.Blog) 
+    .Reference(b => b.Info);
+```
+
+This new API would also allow us to support relationships that don't have both navigation properties. We supported one navigation in EF6, but not having no navigation properties.
+
+```
+modelBuilder.Entity<Post>() 
+    .Reference(p => p.Blog) 
+    .ForeignKey(p => p.TheBlogId);
+```
+
+```
+modelBuilder.Entity<Post>()
+    .ForeignKey<Blog>(p => p.BlogId);
+```
+
+In EF7 we also want to support having unique keys on entities that are not the primary key. To specify these as the target of a relationship you would use a Key method.
+
+```
+// Assume User.Id is configured as the primary key
+modelBuilder.Entity<UserLogin>()
+    .ForeignKey<User>(l => l.Username)
+    .Reference(l => l.User) 
+    .Collection(u => u.Logins)
+    .Key(u => u.Username);
+```
+
