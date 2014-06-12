@@ -109,4 +109,43 @@ If the string provided to the API matches a type/property that is already part o
 
 To avoid the issues we have in EF6 with multiple types in different namespaces, we will just use the fully qualified name of the entity as the name we use in metadata. We will not make any effort to lookup based on the short name. For example, if you have a CLR based entity called **Blogging.Models.Blog** and you call ```Entity("Blog")``` you will be configuring a new shadow state entity rather than the CLR based entity. To configure the CLR based entity you would need to call ```Entity("Blogging.Models.Blog")```.
 
+#### DECISION: Keep using anonymous types for composite keys
+
+The anonymous type syntax that we use in EF6 isn't the most discoverable syntax. It's basically impossible to work out what you are supposed to write if you just look at the API signature. However, we provide good IntelliSense with examples of what to write and we are yet to come up with a better pattern.
+
+```
+modelBuilder.Entity<Review>()
+    .Key(c => new { c.UserId, c.PostId });
+```
+
+For the weakly-typed APIs we will just use a **params** of **string**.
+
+```
+modelBuilder.Entity("Blogging.Models.Review")
+    .Key("UserId", "PostId");
+```
+
+#### DECISIONS: Property facet APIs
+
+We made the following decisions for methods to specify facets of properties. 
+
+| API | Decision |
+|-----|----------|
+| .IsMaxLength() | The semantics of this API aren't very clearly defined. It is kind of specifying that something should be un-bounded. We don't think this is needed in EF7 **we won't pull this API forward**. |
+| .HasMaxLength(int) | Provide ```MaxLength(int)``` with the same functionality |
+| .IsFixedLength() | The idea of something being fixed length isn't really a generic concept and is really specific to the nchar/char datatypes in SQL Server. **We won't pull this API forward** since you can just specify those data types if that is what you want. |
+| .IsVariableLength() | As above, **We won't pull this API forward** |
+| .IsOptional() | We'll provide this functionality via calling ```Required(false)``` |
+| .IsRequired() | Provide ```Required()``` with the same functionality |
+| .HasPrecision(7, 3) | This isn't really a generic concept. **We won't pull this API forward** since you can just specify the data types you want in the database. |
+| .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None) | No decision as yet - we need a separate meeting about store generated patterns |
+| .IsUnicode() and .IsUnicode(bool) | Again, this isn't really a generic concept and is more about specifying the data type in the store. **We won't pull this API forward** since you can just specify the data types you want in the database. |
+| .IsConcurrencyToken() and .IsConcurrencyToken(bool) | Pull forward as ConcurrencyToken() and ConcurrencyToken(bool). |
+| .IsRowVersion() | Again, this isn't really a generic concept and is more about specifying the data type in the store. **We won't pull this API forward** since you can just specify the data types you want in the database. |
+| .HasColumnType(string) | Pull forward as a relational specific ```ColumnType(string)``` method. We'll provide an API to make it easy to specify a particular data type depending on the provider being targeted ```builder.OnSqlServer().Entity<Blog>().Property(b => b.Name).HasColumnType("varchar(max)")```. We may also provide helper methods for specifying types (but we're not committing to it yet) - ```HasColumnType(SqlTypes.Decimal(7, 3))``` |
+| .HasColumnName(string) | Pull forward as a relational specific ```ColumnName(string)``` method. There is currently a first class **StorageName** property in the metadata model. We will demote this from the top level API since it may not apply to all data stores. |
+| .HasColumnAnnotation(string, object) | This is already replaced with better annotation support in the EF7 metadata model |
+| .HasColumnOrder(3) | We'll demote this to a migrations concept as we'll have a deterministic ordering of properties in metadata. The migrations pipeline will have a nice default for the order it puts columns in (i.e. PK, scalars, FK). This is actually better because specifying an order at the moment only affects initial migration/creation since all new columns added to an existing table are added at the end. ```[Column(Order = 123)]``` will only remain meaningful for composite key ordering. |
+
+
 ### Relationship configuration
