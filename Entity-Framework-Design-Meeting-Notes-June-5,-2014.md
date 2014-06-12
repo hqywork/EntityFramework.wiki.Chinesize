@@ -1,12 +1,8 @@
-# These notes are still in progress, they do not yet include all the discussion/decisions from the design meeting
-
 # Entity Framework Design Meeting Notes - June 5, 2014
 
 ## Fluent API
 
 We have had a lot of positive feedback on the existing Fluent API in EF 4.1 thru 6.x. There are some areas that we've seen folks find confusing or suggest improvements on. Given that, we want to keep the same general experience but take some improvements where we think it makes sense.
-
-### General configuration
 
 #### DECISION: Remove Has prefix from methods
 We've seen a number of folks ask that we remove the unneeded **Has** prefix from our APIs, we agree that this just adds clutter, so the plan is to remove these. For example, here is some EF6 code.
@@ -148,7 +144,7 @@ We made the following decisions for methods to specify facets of properties.
 | .HasColumnOrder(3) | We'll demote this to a migrations concept as we'll have a deterministic ordering of properties in metadata. The migrations pipeline will have a nice default for the order it puts columns in (i.e. PK, scalars, FK). This is actually better because specifying an order at the moment only affects initial migration/creation since all new columns added to an existing table are added at the end. ```[Column(Order = 123)]``` will only remain meaningful for composite key ordering. |
 
 
-### DECISION: Try out a Collection/Reference/ForeignKey based relationship API
+#### DECISION: Try out a Collection/Reference/ForeignKey based relationship API
 
 We've had lots of feedback that folks find the current relationship API in EF6 to be confusing. One of the reasons is that the following concepts are all merged into the HasXYZ /WithXWY methods:
 * Pairing up navigation properties
