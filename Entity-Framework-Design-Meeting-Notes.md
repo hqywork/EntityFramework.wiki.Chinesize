@@ -5,3 +5,7 @@ The Entity Framework team has a weekly design meeting in which we discuss/recap 
 ## May 29, 2014
 
 - [Runtime database creation in EF7](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---May-29,-2014#runtime-database-creation-in-ef7)
+
+## June 5, 2014
+
+- [Fluent API](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes-June-5,-2014#fluent-api)
