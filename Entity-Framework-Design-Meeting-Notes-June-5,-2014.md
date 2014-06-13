@@ -29,7 +29,7 @@ modelBuilder.Entity<Blog>()
 
 #### DECISION: Provide a nested closure pattern for entity configuration
 
-The nested closure pattern refers to using a code blog that operates on a configuration object instead of chaining methods together. The advantage of this is that you don't have to drill down to the scope of the object you are configuring, therefore preventing further configuration on the top level object you started configuring. For example, in the EF6 API if I call use the **Property** method to select a property to configure then I can't go back and configure another property because the Property method has dropped the scope down to configuring a specific property.
+The nested closure pattern refers to using a code block that operates on a configuration object instead of chaining methods together. The advantage of this is that you don't have to drill down to the scope of the object you are configuring, therefore preventing further configuration on the top level object you started configuring. For example, in the EF6 API if I call use the **Property** method to select a property to configure then I can't go back and configure another property because the Property method has dropped the scope down to configuring a specific property.
 
 The disadvantage of the nested closure pattern is that it adds complexity, both in terms of the code written and the help provided by IntelliSense. Given that many developers are happy to have to start another line of code to configure a property, we still want to keep the existing method chaining pattern from EF6.
 
