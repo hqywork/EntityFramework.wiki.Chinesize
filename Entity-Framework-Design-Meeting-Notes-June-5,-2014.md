@@ -20,7 +20,7 @@ And here is the corresponding code you'll write in EF7.
 
 ```
 modelBuilder.Entity<Blog>()
-    .Has(b => b.BlogId);
+    .Key(b => b.BlogId);
 
 modelBuilder.Entity<Blog>()
     .Property(b => b.Url)
