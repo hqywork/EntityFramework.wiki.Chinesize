@@ -10,7 +10,7 @@ You need to configure NuGet to use the feed that contains nightly builds.
 * Click **Add** and then **OK**
 
 ## Install Entity Framework (and Providers)
-To get EF7 in your project you need to install the **Microsoft.Data.Entity** NuGet package from the nightly feed. To do this, you can run the following command in Package Manager Console.
+To get EF7 in your project you need to install the **Microsoft.Data.Entity** NuGet package from the nightly feed. To do this, you can run the following command in Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console).
 ```
 PM> Install-Package Microsoft.Data.Entity –Pre
 ```
@@ -20,7 +20,7 @@ You will also need to install a provider to be able to use EF to access a data s
 * Microsoft.Data.Entity.SQLite (currently not working)
 * Microsoft.Data.Entity.InMemory
 
-To use a relational database provider, you will need to target .NET 4.5.1.
+**To use a relational database provider, you will need to target .NET 4.5.1.**
 
 ## Create Your Model
 Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too). The following code uses the **Microsoft.Data.Entity.SqlServer** provider.
