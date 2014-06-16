@@ -22,6 +22,17 @@ You will also need to install a provider to be able to use EF to access a data s
 * Microsoft.Data.Entity.SQLite
 * Microsoft.Data.Entity.InMemory
 
+## Additional Steps for SQLite
+
+To use SQLite you will need to install the [SQLite for Windows Runtime extension](http://visualstudiogallery.msdn.microsoft.com/1d04f82f-2fe9-4727-a2f9-a2db127ddc9a).
+
+Once you have installed the extension (and restarted Visual Studio):
+
+1. **Project -> Add Reference...**
+* Select **Extensions** from the left pane
+* Check the **SQLite for Windows Runtime** box
+* Click **OK**
+
 ## Create Your Model
 Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too). The following code uses the **Microsoft.Data.Entity.SQLite** provider.
 
