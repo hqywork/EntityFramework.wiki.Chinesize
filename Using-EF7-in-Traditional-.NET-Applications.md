@@ -59,8 +59,8 @@ namespace Sample
             var blog = builder.Model.GetEntityType(typeof(Blog));
             var post = builder.Model.GetEntityType(typeof(Post));
             var fk = post.ForeignKeys.Single(f => f.Properties.Any(p => p.Name == "BlogId"));
-            blog.AddNavigation(new Navigation(fk, "Posts"));
-            post.AddNavigation(new Navigation(fk, "Blog"));
+            blog.AddNavigation(new Navigation(fk, "Posts", pointsToPrincipal: false));
+            post.AddNavigation(new Navigation(fk, "Blog", pointsToPrincipal: true));
         }
     }
 
@@ -98,12 +98,9 @@ namespace Sample
         {
             using (var db= new BloggingContext())
             {
-                // If the database doesn't exist, then create it.
-                if(!db.Database.Exists())
-                {
-                    db.Database.Create();
-                    db.Database.CreateTables();
-                }
+                // Migrations are not yet enabled in EF7, so use an
+                // API to create the database if it doesn't exist
+                db.Database.EnsureCreated();
 
                 db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/adonet" });
                 db.SaveChanges();
