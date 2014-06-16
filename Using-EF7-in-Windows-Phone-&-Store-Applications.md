@@ -71,6 +71,8 @@ public App()
   
     using (var db = new BloggingContext())  
     {  
+        // Migrations are not yet enabled in EF7, so use an
+        // API to create the database if it doesn't exist
         db.Database.EnsureCreated();  
     }  
 }  
