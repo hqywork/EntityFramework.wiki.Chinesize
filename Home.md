@@ -26,7 +26,7 @@ You can use the nightly builds of EF7 in your traditional .NET applications. Thi
 
 ### Using EF7 in Windows Store/Phone Applications
 
-For details on using EF7 in Windows Phone and Windows Store applications, see [Using EF7 in Windows Phone/Store Applications](https://github.com/aspnet/EntityFramework/wiki/Using-EF7-in-Windows-Phone-Store-Applications) for instructions.
+For details on using EF7 in Windows Phone and Windows Store applications, see [Using EF7 in Windows Phone/Store Applications](https://github.com/aspnet/EntityFramework/wiki/Using-EF7-in-Windows-Phone-&-Store-Applications) for instructions.
 
 ### Using EF7 with ASP.NET vNext
 EF7 can be used in applications built using ASP.NET vNext. You can find samples, documentation and getting started instructions for ASP.NET vNext at the [Home](https://github.com/aspnet/Home) repo. 
