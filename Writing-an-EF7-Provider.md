@@ -62,6 +62,8 @@ Upon successful completion, return the number of entities successfully saved.
 If an entity cannot be saved, this method should throw an exception containing
 the reason why the action failed.
 
+![Save changes workflow](http://i.imgur.com/chhMeSe.png)
+
 **Query** receives a [QueryModel](#relinq) containing a query to execute against the data store.
 This method should return an IEnumerable from the data store of all entites matching
 the query model.
@@ -129,10 +131,17 @@ custom methods to configure the provider.
 IntelliSense works best the extension methods are defined in the namespace of the class they extend.
 
 ### DbContextOptions
-Expose access to the provider implementation of DbContextOptionsExtension within
-the *OnConfiguring* method of DbContext.
+Expose access to your provider within the *OnConfiguring* method of DbContext. 
+Your extension method should add your provider-specific implementation of 
+DbContextOptionsExtension to an instance of DbContextOptions.
 
-Example: This will help users configure a context to use Azure Table Storage.
+:hammer: Power user note: To add a DbContextOptionsExtension to DbContextOptions,
+you must first cast DbContextOptions to IDbContextOptionsExtensions, and then use
+**IDbContextOptionsExtensions.AddOrUpdateExtension<T>()**.
+We require this to keep IntelliSense clean for users, but still expose
+APIs for EF provider developers.
+
+Example: This will help users configure a context that connects to Azure Table Storage.
 ```c#
 namespace Microsoft.Data.Entity
 {
