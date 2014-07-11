@@ -1,5 +1,3 @@
-Writing an EF7 Provider
-===
 See [this repository](https://github.com/natemcmaster/entityframework-provider-starter)
 to get a starter project for writing a new EF provider.
 
