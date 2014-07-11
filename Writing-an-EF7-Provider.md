@@ -8,7 +8,8 @@ and is used by all of EF supported providers (SQL Server, SQLite, and Azure Tabl
 Using these Core APIs, it is possible to create a provider for additional data store types.
 
 An EF provider must implement a set of APIs to manage reading from and writing to
-a persistent data store.
+a persistent data store. See diagrams and reference below for some detail on how the classes interact
+with the EF core.
 
 (*All reference names in this document are relative to Microsoft.Data.Entity*)
 
@@ -29,14 +30,18 @@ providing extension methods](#extensionmethods) on some of the default EF classe
  - EntityServicesBuilder
  - Storage.Database
 
+# Reference
 ## <a name="abstractclasses"></a> Abstract Classes
 
 ### Infrastructure.DbContextOptionsExtension
 This class configures the dependency injection settings used in an instance of DbContext.
-See [DatastoreSource](#datastoresource)
+It is used during DbContext initialization to configure the DbContextOptions.
+
+Methods required:
 ```c#
 void ApplyServices(EntityServicesBuilder builder);
 ```
+![DbContextOptionExtension](http://i.imgur.com/abu6gCh.png)
 
 ### Storage.Datastore
 This class is the hub of activity for a provider.
@@ -113,6 +118,8 @@ In Azure Table Storage, it provides APIs for creating/deleting tables on the ser
 
 ### Infrastructure.ValueGeneratorCache
 *As of EF 7 alpha3*, a provider does not need to implement any custom behavior here.
+
+
 
 ## <a name="extensionmethods"></a>Recommended Extension Methods
 These classes exist in EF's Core, but users may not know how to directly interact
