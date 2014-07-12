@@ -1,6 +1,3 @@
-See [this repository](https://github.com/natemcmaster/entityframework-provider-starter)
-to get a starter project for writing a new EF provider.
-
 EF provides a set of Core APIs and services that make it easier to manage the
 interaction of in-memory objects and persistent data storage.
 This core is agnostic of all data store specific details,
@@ -11,24 +8,30 @@ An EF provider must implement a set of APIs to manage reading from and writing t
 a persistent data store. See diagrams and reference below for some detail on how the classes interact
 with the EF core.
 
-(*All reference names in this document are relative to Microsoft.Data.Entity*)
-
+### Requirements
 EF providers must implement the following [abstract classes](#abstractclasses).
 
  - Infrastructure.DbContextOptionsExtension
  - Storage.DataStore
  - Storage.DataStoreConnection
  - Storage.DataStoreCreator
+ - Storage.DataStoreSource
 
 [Optional classes to override.](#optionaloverride)
  - Infrastructure.Database
  - Infrastructure.ValueGeneratorCache
 
+(*All reference names in this document are relative to Microsoft.Data.Entity*)
+### Recommended
 To help end-users discover provider-specific features via IntelliSense, we [recommend
 providing extension methods](#extensionmethods) on some of the default EF classes.
  - DbContextOptions
  - EntityServicesBuilder
  - Storage.Database
+
+## Getting Started: Sample Project
+See [this repository](https://github.com/natemcmaster/entityframework-provider-starter)
+to get a starter project for writing a new EF provider.
 
 # Reference
 ## <a name="abstractclasses"></a> Abstract Classes
@@ -67,7 +70,8 @@ the reason why the action failed.
 **Query** receives a [QueryModel](#relinq) containing a query to execute against the data store.
 This method should return an IEnumerable from the data store of all entites matching
 the query model. QueryModel is a simplified, but equivalent expression tree that represents
-the original LINQ query requested by user code on DbSet.
+the original LINQ query requested by user code on DbSet. (Thanks [relinq](#relinq)!)
+
 ![Query](http://i.imgur.com/FvUcYFZ.png)
 
 ### Storage.DataStoreConnection
@@ -217,15 +221,11 @@ namespace Microsoft.Data.Entity
     {
         public static RelationalDatabase AsRelational(this Database database)
         {
-            Check.NotNull(database, "database");
-
             var relationalDatabase = database as RelationalDatabase;
-
             if (relationalDatabase == null)
             {
-                throw new InvalidOperationException(Strings.RelationalNotInUse);
+                throw new InvalidOperationException("RelationalDatabse not in use");
             }
-
             return relationalDatabase;
         }
     }
