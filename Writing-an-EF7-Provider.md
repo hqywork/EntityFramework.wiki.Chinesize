@@ -72,8 +72,10 @@ the original LINQ query requested by user code on DbSet.
 
 ### Storage.DataStoreConnection
 This class manages connection settings and sessions.
-Although an EF provider requires an implementations, the details of how the class
-operates is entirely up to the provider.
+
+Although an EF provider requires an implementation, the details of how the class
+operates is *entirely up to the provider* i.e. time to freestyle. :snowboarder: 
+
 For example, SQL Server uses this class to open TCP/IP connections,
 but SQLite uses this class to create connections to the local filesystem.
 
@@ -88,7 +90,6 @@ bool       EnsureDeleted(IModel model);
 Task<bool> EnsureDeletedAsync(IModel model, CancellationToken cancellationToken);
 ```
 
-
 **EnsureCreated** ensures that the database/tables/containers needed to store
 the model on the server exists and are write-accessible.
 **EnsureDeleted** ensures the database/tables/containers are deleted.
@@ -96,6 +97,8 @@ the model on the server exists and are write-accessible.
 Both methods *return true* when the method call changed something on the server &mdash;
 e.g. created a new database, deleted a table &mdash; and *return false* when
 the model has already been created/deleted.
+
+![datastorecreator](http://i.imgur.com/Taun659.png)
 
 ### <a name="datastoresource"></a>Storage.DatastoreSource
 This class configures Entity Framework to use provider-specific implementations
@@ -109,6 +112,15 @@ of theses classes:
 
 :small_blue_diamond: These classes are not abstract. A default implementation has been provided.
 
+![Datastoresource](http://i.imgur.com/nMQM7Dl.png)
+
+Because this is fairly straightforward class, we have provided an abstract implementation that makes it 
+easier to use dependency injection.
+
+#### DatastoreSource&lt;TDataStore, TDbContextOptionsExtension, TCreator, TConnection, TValueGeneratorCache, TDatabase&gt;
+This generic class requests an implementation of the types classes from ServiceCollection.
+
+![Datastoresource generic](http://i.imgur.com/rNucpFG.png)
 
 ## <a name="optionaloverride"></a> Optional Overrides
 ### Infrastructure.Database
