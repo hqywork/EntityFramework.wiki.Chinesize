@@ -66,8 +66,9 @@ the reason why the action failed.
 
 **Query** receives a [QueryModel](#relinq) containing a query to execute against the data store.
 This method should return an IEnumerable from the data store of all entites matching
-the query model.
-
+the query model. QueryModel is a simplified, but equivalent expression tree that represents
+the original LINQ query requested by user code on DbSet.
+![Query](http://i.imgur.com/FvUcYFZ.png)
 
 ### Storage.DataStoreConnection
 This class manages connection settings and sessions.
