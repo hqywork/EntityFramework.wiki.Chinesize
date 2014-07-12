@@ -224,7 +224,7 @@ namespace Microsoft.Data.Entity
             var relationalDatabase = database as RelationalDatabase;
             if (relationalDatabase == null)
             {
-                throw new InvalidOperationException("RelationalDatabse not in use");
+                throw new InvalidOperationException("RelationalDatabase not in use");
             }
             return relationalDatabase;
         }
