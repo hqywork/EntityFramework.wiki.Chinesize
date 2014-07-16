@@ -127,6 +127,8 @@ This generic class requests an implementation of the types classes from ServiceC
 ![Datastoresource generic](http://i.imgur.com/rNucpFG.png)
 
 ## <a name="optionaloverride"></a> Optional Overrides
+These classes do not *need* to be implemented, but they are a way to extend provider features.
+
 ### Infrastructure.Database
 This class provides access to APIs custom to the database of the provider.
 This class is best used as a proxy to DatastoreCreator which should contain the
@@ -136,9 +138,8 @@ Example: SQLite uses this to provide APIs for creating/deleting a database file.
 In Azure Table Storage, it provides APIs for creating/deleting tables on the server.
 
 ### Infrastructure.ValueGeneratorCache
-*As of EF 7 alpha3*, a provider does not need to implement any custom behavior here.
-
-
+This class is used to control value generators.
+Value generators are used by EF7 to populate fields, such as auto-incremented IDs, that are generated on the server or client.
 
 ## <a name="extensionmethods"></a>Recommended Extension Methods
 These classes exist in EF's Core, but users may not know how to directly interact
