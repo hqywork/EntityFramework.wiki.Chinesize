@@ -14,3 +14,10 @@ The Entity Framework team has a weekly design meeting in which we discuss/recap 
 
 - [Update pipeline overview](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-10,-2014#update-pipeline-overview)
 - [Value generation strategies](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-10,-2014#value-generation)
+
+
+## [July 17, 2014](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-17,-2014)
+
+- [EF7 Redis provider: initial thoughts](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-17,-2014#ef7-redis-provider)
+- [Model Validation](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-17,-2014#model-validation)
+- [Provider-specific conventions](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-17,-2014#provider-specific-conventions)
