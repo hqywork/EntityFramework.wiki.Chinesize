@@ -2,6 +2,12 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [July 31, 2014](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-31,-2014)
+
+- [Value generation - high level experience](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-31,-2014#value-generation---high-level-experience)
+- [Code First conventions](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-31,-2014#code-first-conventions)
+- [Code First relationship API](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---July-31,-2014#code-first-relationship-api)
+
 ## [July 24, 2014](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes-July-24,-2014)
 
 - [Code First fluent API: closures and chaining](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes-July-24,-2014#code-first-fluent-api-closures-and-chaining)
