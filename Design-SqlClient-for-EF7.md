@@ -21,7 +21,7 @@ It is delivered as a NuGet package
 It is licensed with the standard [Microsoft .NET Library EULA](http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm). This license imposes minimal restrictions, allowing use on non-Windows platforms. 
 
 #### Platforms
-It needs to support the following platforms: net451, aspnet50, aspnetcore50, win81, and wpa81. 
+It needs to support the following platforms: net451, aspnet50, aspnetcore50, win81, and wpa81. Mono and Xamarin also need to be supported, we need to work out how to do this since they are currently at net45 but System.Data.Common relies on changes that were made in net451.
 
 **Note:** _The NuGet package only needs to explicitly support net451 (implicitly satisfies aspnet50), win81 (implicitly satisfies aspnetcore50), and wpa81._
 
