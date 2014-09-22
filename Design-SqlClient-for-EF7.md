@@ -11,16 +11,16 @@ The EF team has an initial implementation of System.Data.Common in the [aspnet/D
 
 System.Data.Common is key to the relational provider model for EF7 and there are some important characteristics of the package that need to be maintained if another team takes ownership.
 
-### Implementation
+#### Implementation
 
 The System.Data.Common contract is jointly owned by the SQL, EF and CLR teams. The initial implementation, and any subsequent changes, should be agreed on by all three teams.
 
-### Packaging
+#### Packaging
 It is delivered as a NuGet package
 
 It is licensed with the standard [Microsoft .NET Library EULA](http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm). This license imposes minimal restrictions, allowing use on non-Windows platforms. 
 
-### Platforms
+#### Platforms
 It needs to support the following platforms: net451, aspnet50, aspnetcore50, win81, and wpa81. 
 
 **Note:** _The NuGet package only needs to explicitly support net451 (implicitly satisfies aspnet50), win81 (implicitly satisfies aspnetcore50), and wpa81._
@@ -45,18 +45,18 @@ The EF team has a temporary implementation of this component which is maintained
 
 Key requirements of this component include the following.
 
-### Implementation
+#### Implementation
 
 This spec does not contain an exhaustive list of all the SqlClient features that EF7 requires. The implementation should implement the APIs available in the System.Data.Common provider model, plus any additional functionality that the SQL team thinks is worth exposing in modern applications. 
 
-### Packaging
+#### Packaging
 It is delivered as a NuGet package
 
 It is licensed with the standard [Microsoft .NET Library EULA](http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm). This license imposes minimal restrictions, allowing use on non-Windows platforms. 
 
 The package includes any required native assemblies and does any setup required for those assemblies to be used by the application (i.e. the developer shouldn’t need to do anything other than install the NuGet package for this component to be useable).
 
-###Platforms
+#### Platforms
 At a minimum, the package should support the net451, aspnet50, and aspnetcore50 platforms.
 
 **Note:** _Supporting net451 implicitly provides support for aspnet50._
