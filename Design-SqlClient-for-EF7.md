@@ -1,13 +1,13 @@
 # SqlClient for EF7
 
-The purpose of this design document is to define what the Entity Framework team is requesting from the SQL team regarding a SqlClient implementation that can be used with EF7 (and supports ASP.NET vNext on CoreCLR).
+The purpose of this design document is to define what Entity Framework requires from a SqlClient implementation to be used in EF7 with support for ASP.NET vNext on CoreCLR.
 
 There are two separate components required to make this happen, System.Data.Common and a SqlClient implementation of System.Data.Common. This document covers the requirements for both of these components.
 
 ## System.Data.Common
 System.Data.Common is designed to be a cross platform version of the ADO.NET provider model. The API surface is stripped down to only include the surface needed to build modern applications (i.e. legacy APIs/features are removed).
 
-The EF team has an initial implementation of System.Data.Common in the [aspnet/DataCommon](https://github.com/aspnet/DataCommon/) repository and builds of this code base are being published to the [AspNetvNext MyGet feed](https://www.myget.org/F/aspnetvnext/api/v2/) (as the System.Data.Common NuGet package). The EF team is happy to continue maintaining this implementation, but also has no objections to the CLR or SQL team taking ownership (including moving it to another source control location). Since there are existing public pre-release components that build on System.Data.Common, the EF team will continue to use its implementation until an equivalent NuGet package can be provided to replace it.
+An initial implementation of System.Data.Common lives in [aspnet/DataCommon](https://github.com/aspnet/DataCommon/) repository and builds of this code base are being published to the [AspNetvNext MyGet feed](https://www.myget.org/F/aspnetvnext/api/v2/) (as the System.Data.Common NuGet package). Moving forward the SQL team will take ownership of this package moving it to another source control location. Since there are existing public pre-release components that build on System.Data.Common, the EF team will continue to use its implementation until an equivalent NuGet package is ready to replace it.
 
 System.Data.Common is key to the relational provider model for EF7 and there are some important characteristics of the package that need to be maintained if another team takes ownership.
 
