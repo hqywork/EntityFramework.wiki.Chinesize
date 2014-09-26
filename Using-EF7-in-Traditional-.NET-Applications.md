@@ -1,5 +1,9 @@
 # Using EF7 in Traditional .NET Applications
 
+## Install a Build of NuGet 2.8.3
+
+TODO
+
 ## Add Nightly NuGet Feed
 You need to configure NuGet to use the feed that contains nightly builds.
 
@@ -10,20 +14,22 @@ You need to configure NuGet to use the feed that contains nightly builds.
 * Click **Add** and then **OK**
 
 ## Install Entity Framework (and Providers)
-To get EF7 in your project you need to install the **Microsoft.Data.Entity** NuGet package from the nightly feed. To do this, you can run the following command in Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console).
+To get EF7 in your project you need to install the package for the database provider(s) you want to target. Currently, the following provider packages are available for full .NET applications:
+* EntityFramework.SqlServer
+* EntityFramework.SQLite
+* EntityFramework.AzureTableStorage
+* EntityFramework.InMemory
+
+The sample on this page uses SQL Server, so you would run the following command in Package Manager Console. **Make sure the nightly feed you created in the previous step is selected before running this command**.
+
 ```
-PM> Install-Package Microsoft.Data.Entity –Pre
+PM> Install-Package EntityFramework.SqlServer –Pre
 ```
 
-You will also need to install a provider to be able to use EF to access a data store. Currently, the following provider packages are available for full .NET applications:
-* Microsoft.Data.Entity.SqlServer
-* Microsoft.Data.Entity.SQLite (currently not working)
-* Microsoft.Data.Entity.InMemory
-
-**To use a relational database provider, you will need to target .NET 4.5.1.**
+**To use a relational database provider, your application will need to target .NET 4.5.1.**
 
 ## Create Your Model
-Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too). The following code uses the **Microsoft.Data.Entity.SqlServer** provider.
+Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too). The following code uses the **EntityFramework.SqlServer** provider.
 
 ```
 using Microsoft.Data.Entity;
@@ -40,27 +46,14 @@ namespace Sample
 
         protected override void OnConfiguring(DbContextOptions builder)
         {
-            // If you want to store the connection string in Web/App.config then use
-            // ConfigurationManager to load it from config and pass the string to UseSqlServer.
             builder.UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            // This is an early API and will change to more usable
-            builder.Entity<Post>()
-                .ForeignKeys(b =>
-                {
-                    b.ForeignKey<Blog>(p => p.BlogId);
-                });
-
-            // Fluent API does not support configuring relationships yet. You
-            // need to manipulate the underlying object model to define them.
-            var blog = builder.Model.GetEntityType(typeof(Blog));
-            var post = builder.Model.GetEntityType(typeof(Post));
-            var fk = post.ForeignKeys.Single(f => f.Properties.Any(p => p.Name == "BlogId"));
-            blog.AddNavigation(new Navigation(fk, "Posts", pointsToPrincipal: false));
-            post.AddNavigation(new Navigation(fk, "Blog", pointsToPrincipal: true));
+            builder.Entity<Blog>()
+                .OneToMany(b => b.Posts, p => p.Blog)
+                .ForeignKey(p => p.BlogId);
         }
     }
 
@@ -84,8 +77,19 @@ namespace Sample
 }
 ```
 
+## Create Your Database
+Now that you have a model, you can use migrations to create a database for you.
+
+In Package Manager Console (**Tools –> NuGet Package Manager –> Package Manager Console**):
+
+1. ```Install-Package EntityFramework.Commands -Pre``` to make the migrations commands available in your project.
+* ```Add-Migration MyFirstMigration``` to scaffold a migration to create the initial set of tables for your model.
+* ```Update-Database``` to apply the new migration to the database. Because your database doesn't exist yet, it will be created for you before the migration is applied.
+
+If you make future changes to your model, you can use the ```Add-Migration``` command to scaffold a new migration to apply the corresponding changes to the database. Once you have checked the scaffolded code (and made any required changes), you can use the ```Update-Database``` command to apply the changes to the database.
+
 ## Use Your Model
-You can now use your model to perform data access. Note that there is currently no Migrations support, so you will need to use the **DbContext.Database** API to explicitly create the database if it doesn’t exist.
+You can now use your model to perform data access.
 
 ```
 using System;
@@ -96,12 +100,8 @@ namespace Sample
     {
         static void Main(string[] args)
         {
-            using (var db= new BloggingContext())
+            using (var db = new BloggingContext())
             {
-                // Migrations are not yet enabled in EF7, so use an
-                // API to create the database if it doesn't exist
-                db.Database.EnsureCreated();
-
                 db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/adonet" });
                 db.SaveChanges();
 
