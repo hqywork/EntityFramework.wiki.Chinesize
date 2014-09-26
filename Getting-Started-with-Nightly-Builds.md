@@ -8,10 +8,7 @@ If you want to get involved with EF7 you can try out our nightly builds.
 In particular, there are the following limitations:
 
 * Data Annotations are not yet supported for configuring a model.
-* The Fluent API only has very basic functionality implemented so far. For many modelling concerns (such as defining relationships between entities) you need to manipulate the underlying object model directly.
-* The relational database providers process some parts of the query in the database and others in-memory. There are a number of operations currently performed in-memory that will be moved to database evaluation as we progress with EF7.
 * There is currently no loading of related data (eager, lazy, or explicit loading). To load related data you need to issue a separate LINQ query.
-* Migrations are not yet supported – although we do have a lot of the building blocks in place. Currently, you’ll need to use the DbContext.Database API to maintain your database.
 
 ## Using EF7 in Traditional .NET Applications
 
