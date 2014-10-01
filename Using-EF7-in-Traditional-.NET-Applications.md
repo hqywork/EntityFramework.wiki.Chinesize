@@ -6,8 +6,6 @@ The EF7 NuGet packages use some new metadata that isn't supported in currently r
 * Download and install the pre-release build of [NuGet 2.8.3](https://nuget.codeplex.com/releases/view/133091)
 * Restart VS
 
-**Note this will break some functionality in Visual Studio, including creating new EDMX models using the EF6.x Designer.**
-
 ## Add Nightly NuGet Feed
 You need to configure NuGet to use the feed that contains nightly builds.
 
