@@ -1,14 +1,9 @@
 # Using EF7 in Traditional .NET Applications
 
 ## Install a Build of NuGet 2.8.3
-The EF7 NuGet packages use some new metadata that isn't supported in currently released versions of NuGet. Until a version of NuGet 2.8.3 is released, here are the steps to install a nightly build that can work with the latest EF7 packages:
+The EF7 NuGet packages use some new metadata that isn't supported in currently released versions of NuGet. Until a version of NuGet 2.8.3 is released, here are the steps to install a pre-release build that can work with the latest EF7 packages:
 
-* In Visual Studio **Tools -> Extensions and Updates...**
-* Select **Installed** from left pane
-* Locate **NuGet Package Manager** and uninstall it
-* Go to the latest build of [NuGet 2.8.3](https://nugetbuild.cloudapp.net/viewLog.html?buildTypeId=Client_VisualStudio_NuGetForVS2013&buildId=lastSuccessful&buildBranch=2.8.3&tab=artifacts#!19frxayyv0m10)
-* Download **VisualStudioAddIn\NuGet.Tools-2013.vsix** (note it may try to save as a **.zip** file, if so you need to swap the extension to **.vsix**)
-* Double click the VSIX and complete the install
+* Download and install the pre-release build of [NuGet 2.8.3](https://nuget.codeplex.com/releases/view/133091)
 * Restart VS
 
 **Note this will break some functionality in Visual Studio, including creating new EDMX models using the EF6.x Designer.**
