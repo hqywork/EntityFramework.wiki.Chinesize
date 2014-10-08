@@ -33,7 +33,7 @@ PM> Install-Package EntityFramework.SqlServer –Pre
 ## Create Your Model
 Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too). The following code uses the **EntityFramework.SqlServer** provider.
 
-```
+```csharp
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 using System.Collections.Generic;
@@ -93,7 +93,7 @@ If you make future changes to your model, you can use the ```Add-Migration``` co
 ## Use Your Model
 You can now use your model to perform data access.
 
-```
+```csharp
 using System;
 
 namespace Sample
