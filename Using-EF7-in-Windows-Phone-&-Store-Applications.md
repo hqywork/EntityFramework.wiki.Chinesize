@@ -46,7 +46,7 @@ Once you have installed the extension (and restarted Visual Studio):
 ## Create Your Model
 Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too). 
 
-```
+```csharp
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 using System.Collections.Generic;
@@ -64,8 +64,8 @@ namespace Sample
 #if WINDOWS_PHONE_APP
             var connection = "Filename=GameHistory.db";
 #else 
-             var dir = Windows.Storage.ApplicationData.Current.LocalFolder.Path; 
-             var connection = "Filename=" + System.IO.Path.Combine(dir, "GameHistory.db"); 
+            var dir = Windows.Storage.ApplicationData.Current.LocalFolder.Path; 
+            var connection = "Filename=" + System.IO.Path.Combine(dir, "GameHistory.db"); 
 #endif
 
             builder.UseSQLite(connection);
@@ -112,7 +112,7 @@ namespace Sample
 ## Use Your Model
 You can now use your model to perform data access. Note that there is currently no Migrations support for Phone/Store apps, so you will need to use the ```DbContext.Database``` API to explicitly create the database if it doesn’t exist.
 
-```  
+```csharp
 public App()  
 {  
     this.InitializeComponent();  
@@ -125,10 +125,7 @@ public App()
         db.Database.EnsureCreated();  
     }  
 }  
-```  
 
-
-```
 private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)  
 {  
     using (var db = new BloggingContext())  
