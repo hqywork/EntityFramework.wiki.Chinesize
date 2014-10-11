@@ -35,7 +35,7 @@ There should be a net451 implementation of System.Data.Common that type forwards
 
 The previous two requirements are best achieved by having the following two folders in the lib folder of the NuGet package:
  * **portable-net451+win81+wpa81:** Acts as the portable contract and also the implementation that is used on win81, wpa81 and aspnetcore50.
- * **net451:** acts as the implementation (with type forwarding) that is used when targeting full .NET (and aspnet).
+ * **net451:** acts as the implementation (with type forwarding) that is used when targeting full .NET (and aspnet50).
 
 
 ## SqlClient
