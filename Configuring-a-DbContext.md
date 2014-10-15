@@ -109,3 +109,219 @@ var context = new BloggingContext(options);
 ```
 Options.UseSqlServer(ConfigurationManager.ConnectionStrings["Blogging"].ConnectionString)
 ```
+
+
+# Dependency Injection Scenarios
+
+## Config inline in code
+
+**Startup code**
+
+```
+services.AddEntityFramework()
+    .AddSqlServer()
+    .AddDbContext<BloggingContext>();
+```
+
+**Context code**
+
+```
+public class BloggingContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+
+    protected override void OnConfiguring(DbContextOptions options)
+    {        options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;");
+    }
+}
+```
+
+**Application code**
+
+```
+public MyController(BloggingContext context)
+```
+
+## Config in startup code, default ctor
+
+**Startup code**
+
+```
+services.AddEntityFramework()
+    .AddSqlServer()
+    .AddDbContext<BloggingContext>(options => 
+        options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;"));
+```
+
+**Context code**
+
+```
+public class BloggingContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+}
+```
+
+**Application code**
+
+```
+public MyController(BloggingContext context)
+```
+
+## Config in startup code, options ctor
+
+**Startup code**
+
+```
+services.AddEntityFramework()
+    .AddSqlServer()
+    .AddDbContext<BloggingContext>(options => 
+        options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;"));
+```
+
+**Context code**
+
+**Note:** This should also work if there are additional constructor parameters after the 'options'. Those additional parameters should be resolved from the DI container.
+
+```
+public class BloggingContext : DbContext
+{
+    public BloggingContext (DbContextOptions options)
+        : base(options)
+    { }
+
+    public DbSet<Blog> Blogs { get; set; }
+}
+```
+
+**Application code**
+
+```
+public MyController(BloggingContext context)
+```
+
+**Test code**
+
+```
+var options = new DbContextOptions().UseInMemory();
+var context = new BloggingContext(options);
+```
+
+## Connection from config, provider specified in code
+This approach can be used in any of the above scenarios, rather than specifying the connection in code.
+
+**Config.json**
+
+```
+"EntityFramework": {
+    "BloggingContext": { 
+        "ConnectionString" : "Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;"
+    }
+}
+```
+
+The items inside the context element are just key/value pairs that are interpreted by the provider (i.e. there is no baked in concept of ConnectionString as not all providers require it). To begin with developers will still need to specify the provider in code via the options API, but in the future we would like to enable specifying the provider itself from config.
+
+**Note:** We will also support loading the connection string from another config value:
+
+```
+"Data": {
+    "DefaultConnection": { 
+        "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnetvnext-Blogging-259b5360-e4c0-4bc8-a417-bdc627b9d02b;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+},
+"EntityFramework": {
+    "BloggingContext": { 
+        "ConnectionStringKey" : "Data:DefaultConnection:ConnectionString"
+    }
+}
+```
+
+**Context or startup code**
+
+```
+options.UseSqlServer();
+```
+
+This method would decide what to do based on the key/value pairs from config. In the case of SQL Server it would just look for ConnectionString or ConnectionStringKey.
+
+## Connection and provider from config (longer term goal)
+
+**Config.json**
+
+```
+"EntityFramework": {
+    "BloggingContext": { 
+        "DataStore" : "EntityFramework.SqlServer",
+        "ConnectionString" : "Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;"
+    }
+}
+```
+
+Format is just an approximation, we still need to work out how you would specify the provider to use.
+
+**Startup code**
+
+```
+services.AddEntityFramework()
+    .AddSqlServer()
+    .AddDbContext<BloggingContext>();
+```
+
+**Context code**
+
+```
+public class BloggingContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+}
+```
+
+**Application code**
+
+```
+public MyController(BloggingContext context)
+```
+
+
+# ASP.NET vNext template
+
+What we scaffold by default in project templates is important because it is the most likely to be copied and will be viewed as best practice. This summarizes the code we will scaffold for the ```ApplicationDbContext``` in new ASP.NET vNext projects.
+
+**Startup code**
+
+```
+services.AddEntityFramework(config)
+    .AddSqlServer()
+    .AddDbContext<ApplicationDbContext>();
+```
+
+**Context code**
+
+```
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+{
+    public DbSet<Blog> Blogs { get; set; }
+
+    protected override void OnConfiguring(DbContextOptions options)
+    {        options.UseSqlServer();
+    }
+}
+```
+
+**Config.json**
+
+**Note:** The use of 'DefaultConnection' is important because there is logic in deployment that special cases this connection string to help with SQL Azure provisioning. 
+
+```
+"Data": {
+    "DefaultConnection": { 
+        "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnetvnext-Blogging-259b5360-e4c0-4bc8-a417-bdc627b9d02b;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+},
+"EntityFramework": {
+    "ApplicationDbContext": { 
+        "ConnectionStringKey" : "Data:DefaultConnection:ConnectionString"
+    }
+}
+```
