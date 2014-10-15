@@ -19,20 +19,21 @@ There are two main buckets of scenarios
 
 **Context code**
 
-```
+```C#
 public class BloggingContext : DbContext
 {
     public DbSet<Blog> Blogs { get; set; }
 
     protected override void OnConfiguring(DbContextOptions options)
-    {        options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;");
+    {
+        options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;");
     }
 }
 ```
 
 **Application code**
 
-```
+```C#
 var context = new BloggingContext();
 ```
 
@@ -44,7 +45,7 @@ This approach doesn't really lend itself to testing (unless you target the full 
 
 **Context Code**
 
-```
+```C#
 public class BloggingContext : DbContext
 {
     public CycleSalesContext(DbContextOptions options)
@@ -57,14 +58,14 @@ public class BloggingContext : DbContext
 
 **Application code**
 
-```
+```C#
 var options = new DbContextOptions().UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;");
 var context = new BloggingContext(options);
 ```
 
 **Test code**
 
-```
+```C#
 var options = new DbContextOptions().UseInMemory();
 var context = new BloggingContext(options);
 ```
@@ -73,7 +74,7 @@ var context = new BloggingContext(options);
 
 **Context Code**
 
-```
+```C#
 public class BloggingContext : DbContext
 {
     public BloggingContext ()
@@ -93,7 +94,7 @@ public class BloggingContext : DbContext
 
 **Application code**
 
-```
+```C#
 var context = new BloggingContext();
 ```
 
@@ -101,7 +102,7 @@ var context = new BloggingContext();
 
 **Open Issue:** Rather than locking the options could the developer just write defensive code in OnConfiguring to only set a data store if one isn't already set.
 
-```
+```C#
 var options = new DbContextOptions().UseInMemory();
 options.Lock(); 
 var context = new BloggingContext(options);
@@ -111,7 +112,7 @@ var context = new BloggingContext(options);
 
 **Open Issue:** This scenario isn't really supported as yet. You need to use one of the approaches above but read the connection string from config.
 
-```
+```C#
 Options.UseSqlServer(ConfigurationManager.ConnectionStrings["Blogging"].ConnectionString)
 ```
 
@@ -129,7 +130,7 @@ Options.UseSqlServer(ConfigurationManager.ConnectionStrings["Blogging"].Connecti
 
 **Startup code**
 
-```
+```C#
 services.AddEntityFramework()
     .AddSqlServer()
     .AddDbContext<BloggingContext>();
@@ -137,7 +138,7 @@ services.AddEntityFramework()
 
 **Context code**
 
-```
+```C#
 public class BloggingContext : DbContext
 {
     public DbSet<Blog> Blogs { get; set; }
@@ -150,7 +151,7 @@ public class BloggingContext : DbContext
 
 **Application code**
 
-```
+```C#
 public MyController(BloggingContext context)
 ```
 
@@ -158,7 +159,7 @@ public MyController(BloggingContext context)
 
 **Startup code**
 
-```
+```C#
 services.AddEntityFramework()
     .AddSqlServer()
     .AddDbContext<BloggingContext>(options => 
@@ -167,7 +168,7 @@ services.AddEntityFramework()
 
 **Context code**
 
-```
+```C#
 public class BloggingContext : DbContext
 {
     public DbSet<Blog> Blogs { get; set; }
@@ -176,7 +177,7 @@ public class BloggingContext : DbContext
 
 **Application code**
 
-```
+```C#
 public MyController(BloggingContext context)
 ```
 
@@ -184,7 +185,7 @@ public MyController(BloggingContext context)
 
 **Startup code**
 
-```
+```C#
 services.AddEntityFramework()
     .AddSqlServer()
     .AddDbContext<BloggingContext>(options => 
@@ -195,7 +196,7 @@ services.AddEntityFramework()
 
 **Note:** This should also work if there are additional constructor parameters after the 'options'. Those additional parameters should be resolved from the DI container.
 
-```
+```C#
 public class BloggingContext : DbContext
 {
     public BloggingContext (DbContextOptions options)
@@ -208,13 +209,13 @@ public class BloggingContext : DbContext
 
 **Application code**
 
-```
+```C#
 public MyController(BloggingContext context)
 ```
 
 **Test code**
 
-```
+```C#
 var options = new DbContextOptions().UseInMemory();
 var context = new BloggingContext(options);
 ```
@@ -224,7 +225,7 @@ This approach can be used in any of the above scenarios, rather than specifying 
 
 **Config.json**
 
-```
+```JSON
 "EntityFramework": {
     "BloggingContext": { 
         "ConnectionString" : "Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;"
@@ -236,7 +237,7 @@ The items inside the context element are just key/value pairs that are interpret
 
 **Note:** We will also support loading the connection string from another config value:
 
-```
+```JSON
 "Data": {
     "DefaultConnection": { 
         "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnetvnext-Blogging-259b5360-e4c0-4bc8-a417-bdc627b9d02b;Trusted_Connection=True;MultipleActiveResultSets=true"
@@ -251,7 +252,7 @@ The items inside the context element are just key/value pairs that are interpret
 
 **Context or startup code**
 
-```
+```C#
 options.UseSqlServer();
 ```
 
@@ -261,7 +262,7 @@ This method would decide what to do based on the key/value pairs from config. In
 
 **Config.json**
 
-```
+```JSON
 "EntityFramework": {
     "BloggingContext": { 
         "DataStore" : "EntityFramework.SqlServer",
@@ -274,7 +275,7 @@ Format is just an approximation, we still need to work out how you would specify
 
 **Startup code**
 
-```
+```C#
 services.AddEntityFramework()
     .AddSqlServer()
     .AddDbContext<BloggingContext>();
@@ -282,7 +283,7 @@ services.AddEntityFramework()
 
 **Context code**
 
-```
+```C#
 public class BloggingContext : DbContext
 {
     public DbSet<Blog> Blogs { get; set; }
@@ -291,7 +292,7 @@ public class BloggingContext : DbContext
 
 **Application code**
 
-```
+```C#
 public MyController(BloggingContext context)
 ```
 
@@ -302,7 +303,7 @@ What we scaffold by default in project templates is important because it is the 
 
 **Startup code**
 
-```
+```C#
 services.AddEntityFramework(config)
     .AddSqlServer()
     .AddDbContext<ApplicationDbContext>();
@@ -310,7 +311,7 @@ services.AddEntityFramework(config)
 
 **Context code**
 
-```
+```C#
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public DbSet<Blog> Blogs { get; set; }
@@ -325,7 +326,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
 **Note:** The use of 'DefaultConnection' is important because there is logic in deployment that special cases this connection string to help with SQL Azure provisioning. 
 
-```
+```JSON
 "Data": {
     "DefaultConnection": { 
         "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnetvnext-Blogging-259b5360-e4c0-4bc8-a417-bdc627b9d02b;Trusted_Connection=True;MultipleActiveResultSets=true"
