@@ -5,8 +5,8 @@ The purpose of this page is to identify the patterns that we provide for configu
 This page identifies the primary patterns that we want to encourage developers to use - and thus will optimize the code base for. There are, of course, other patterns that are possible with the building blocks we provide.
 
 There are two main buckets of scenarios
-* **Non Dependency Injection Scenarios** - These are mainly non-ASP.NET 5 applications, such as WPF, WinForms, Phone, Store, etc. Of course, you can also use a DI container in these applications, in which case the 'Dependency Injection Scenarios' apply.
-* **Dependency Injection Scenarios** - These are primarily about ASP.NET 5, where apps revolve around services being configured in a DI container in Startup.cs. 
+* **[Non Dependency Injection Scenarios](#non-dependency-injection-scenarios)** - These are mainly non-ASP.NET 5 applications, such as WPF, WinForms, Phone, Store, etc. Of course, you can also use a DI container in these applications, in which case the 'Dependency Injection Scenarios' apply.
+* **[Dependency Injection Scenarios](#dependency-injection-scenarios)** - These are primarily about ASP.NET 5, where apps revolve around services being configured in a DI container in Startup.cs. 
 
 # Non Dependency Injection Scenarios
 
