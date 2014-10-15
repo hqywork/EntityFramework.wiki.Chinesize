@@ -10,10 +10,10 @@ There are two main buckets of scenarios
 
 # Non Dependency Injection Scenarios
 
-* [Config inline in code](#Config-inline-in-code)
-* [Config from external code](#Config-from-external-code)
-* [Config inline in code but overridden from external code](#Config-inline-in-code-but-overridden-from-external-code)
-* [Connection from config rather than code](#Connection-from-config-rather-than-code)
+* [Config inline in code](#config-inline-in-code)
+* [Config from external code](#config-from-external-code)
+* [Config inline in code but overridden from external code](#config-inline-in-code-but-overridden-from-external-code)
+* [Connection from config rather than code](#connection-from-config-rather-than-code)
 
 ### Config inline in code
 
