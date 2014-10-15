@@ -10,6 +10,11 @@ There are two main buckets of scenarios
 
 # Non Dependency Injection Scenarios
 
+* [Config inline in code](#Config-inline-in-code)
+* [Config from external code](#Config-from-external-code)
+* [Config inline in code but overridden from external code](Config-inline-in-code-but-overridden-from-external-code)
+* [Connection from config rather than code](Connection-from-config-rather-than-code)
+
 ### Config inline in code
 
 **Context code**
@@ -112,6 +117,13 @@ Options.UseSqlServer(ConfigurationManager.ConnectionStrings["Blogging"].Connecti
 
 
 # Dependency Injection Scenarios
+ 
+* [Config inline in code](#Config-inline-in-code)
+* [Config in startup code, default ctor](#Config-in-startup-code-default-ctor)
+* [Config in startup code, options ctor](#Config-in-startup-code-options-ctor)
+* [Connection from config, provider specified in code](#Connection-from-config-provider-specified-in-code)
+* [Connection and provider from config (longer term goal)](#Connection-and-provider-from-config-longer-term-goal)
+* [ASP.NET vNext template](#ASP.NET-vNext-template)
 
 ## Config inline in code
 
