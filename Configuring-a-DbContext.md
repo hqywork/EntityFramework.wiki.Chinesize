@@ -12,8 +12,8 @@ There are two main buckets of scenarios
 
 * [Config inline in code](#Config-inline-in-code)
 * [Config from external code](#Config-from-external-code)
-* [Config inline in code but overridden from external code](Config-inline-in-code-but-overridden-from-external-code)
-* [Connection from config rather than code](Connection-from-config-rather-than-code)
+* [Config inline in code but overridden from external code](#Config-inline-in-code-but-overridden-from-external-code)
+* [Connection from config rather than code](#Connection-from-config-rather-than-code)
 
 ### Config inline in code
 
