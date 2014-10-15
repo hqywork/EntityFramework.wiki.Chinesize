@@ -123,7 +123,7 @@ Options.UseSqlServer(ConfigurationManager.ConnectionStrings["Blogging"].Connecti
 * [Config in startup code, options ctor](#config-in-startup-code-options-ctor)
 * [Connection from config, provider specified in code](#connection-from-config-provider-specified-in-code)
 * [Connection and provider from config (longer term goal)](#connection-and-provider-from-config-longer-term-goal)
-* [ASP.NET vNext template](#asp.net-vnext-template)
+* [ASP.NET vNext template](#aspnet-vnext-template)
 
 ## Config inline in code
 
