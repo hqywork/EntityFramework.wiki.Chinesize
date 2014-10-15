@@ -118,12 +118,12 @@ Options.UseSqlServer(ConfigurationManager.ConnectionStrings["Blogging"].Connecti
 
 # Dependency Injection Scenarios
  
-* [Config inline in code](#Config-inline-in-code)
-* [Config in startup code, default ctor](#Config-in-startup-code-default-ctor)
-* [Config in startup code, options ctor](#Config-in-startup-code-options-ctor)
-* [Connection from config, provider specified in code](#Connection-from-config-provider-specified-in-code)
-* [Connection and provider from config (longer term goal)](#Connection-and-provider-from-config-longer-term-goal)
-* [ASP.NET vNext template](#ASP.NET-vNext-template)
+* [Config inline in code](#config-inline-in-code)
+* [Config in startup code, default ctor](#config-in-startup-code-default-ctor)
+* [Config in startup code, options ctor](#config-in-startup-code-options-ctor)
+* [Connection from config, provider specified in code](#connection-from-config-provider-specified-in-code)
+* [Connection and provider from config (longer term goal)](#connection-and-provider-from-config-longer-term-goal)
+* [ASP.NET vNext template](#asp.net-vnext-template)
 
 ## Config inline in code
 
