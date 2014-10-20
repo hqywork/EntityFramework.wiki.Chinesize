@@ -86,9 +86,9 @@ In Package Manager Console (**Tools –> NuGet Package Manager –> Package Mana
 
 1. ```Install-Package EntityFramework.Commands -Pre``` to make the migrations commands available in your project.
 * ```Add-Migration MyFirstMigration``` to scaffold a migration to create the initial set of tables for your model.
-* ```Update-Database``` to apply the new migration to the database. Because your database doesn't exist yet, it will be created for you before the migration is applied.
+* ```Apply-Migration``` to apply the new migration to the database. Because your database doesn't exist yet, it will be created for you before the migration is applied.
 
-If you make future changes to your model, you can use the ```Add-Migration``` command to scaffold a new migration to apply the corresponding changes to the database. Once you have checked the scaffolded code (and made any required changes), you can use the ```Update-Database``` command to apply the changes to the database.
+If you make future changes to your model, you can use the ```Add-Migration``` command to scaffold a new migration to apply the corresponding changes to the database. Once you have checked the scaffolded code (and made any required changes), you can use the ```Apply-Migration``` command to apply the changes to the database.
 
 ## Use Your Model
 You can now use your model to perform data access.
