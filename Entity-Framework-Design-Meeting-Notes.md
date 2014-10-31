@@ -2,6 +2,13 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [October 30, 2014](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-October-30,-2014)
+
+- [Models and stores in Migrations](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-October-30,-2014#models-and-stores-in-migrations)
+- [EF7 and MARS](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-October-30,-2014#ef7-and-mars)
+- [Automatic DetectChanges](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-October-30,-2014#automatic-detectchanges)
+- [DbContext/DbSet methods](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-October-30,-2014#dbcontextdbset-methods)
+
 ## [October 9, 2014](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-October-9,-2014)
 
 - [The meaning of MaxLength](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-October-9,-2014#meaning-of-maxlength)
