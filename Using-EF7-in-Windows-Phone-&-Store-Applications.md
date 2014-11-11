@@ -113,6 +113,29 @@ namespace Sample
 }
 ```
 
+## Create Your Database
+Now that you have a model, you can use migrations to create a database for you.
+
+In Package Manager Console (**Tools –> NuGet Package Manager –> Package Manager Console**):
+
+1. ```Install-Package EntityFramework.Commands -Pre``` to make the migrations commands available in your project.
+* ```Add-Migration MyFirstMigration``` to scaffold a migration to create the initial set of tables for your model.
+
+In desktop/server applications you would normally use the ```Apply-Migration``` to apply the new migration to your development database. However, because the database is going to be created on the devices local storage, you need to add some code to apply migrations on the device. You can do this during app startup:
+
+```
+using (var db = new BloggingContext())
+{
+   db.Database.AsMigrationsEnabled().ApplyMigrations();
+}
+```
+
+Note you need to import the Microsoft.Data.Entity namespace to get the required extension methods; ```using Microsoft.Data.Entity;```.
+
+Because your database doesn't exist yet, it will be created when the migration is applied.
+
+If you make future changes to your model, you can use the ```Add-Migration``` command to scaffold a new migration to apply the corresponding changes to the database.
+
 ## Use Your Model
 You can now use your model to perform data access. Note that there is currently no Migrations support for Phone/Store apps, so you will need to use the ```DbContext.Database``` API to explicitly create the database if it doesn’t exist.
 
