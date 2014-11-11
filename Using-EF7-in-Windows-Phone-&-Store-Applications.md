@@ -85,11 +85,11 @@ namespace Sample
             // so setting the keys to be generated from developer code
             builder.Entity<Blog>()
                 .Property(b => b.BlogId)
-                .GenerateValuesOnAdd(false);
+                .GenerateValueOnAdd(false);
 
             builder.Entity<Post>()
                 .Property(b => b.BlogId)
-                .GenerateValuesOnAdd(false);
+                .GenerateValueOnAdd(false);
         }
     }
 
