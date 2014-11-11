@@ -3,12 +3,16 @@
 ## Supported App Types
 EF7 works on **Windows Phone 8.1** and **Windows Store 8.1** applications, plus the new **Universal Apps** that target both these platforms.
 
+## You need NuGet 2.8.3 or later
+The EF7 NuGet packages use some new metadata that is only supported in NuGet 2.8.3 or higher. 
 
-## Install a Build of NuGet 2.8.3
-The EF7 NuGet packages use some new metadata that isn't supported in currently released versions of NuGet. Until a version of NuGet 2.8.3 is released, here are the steps to install a pre-release build that can work with the latest EF7 packages:
+Note that NuGet version numbers can be confusing, while the first compatible release was branded 2.8.3 the product version of the extension is 2.8.50926.xxx.
 
-* Download and install the pre-release build of [NuGet 2.8.3](https://nuget.codeplex.com/releases/view/133091)
-* Restart VS
+* **Visual Studio 2015** - No updates needed, a compatible version of NuGet is included.
+* **Visual Studio 2013** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca). A compatible version is also included in VS 2013 Update 4.
+* **Visual Studio 2010 and 2012** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c).
+
+**Make sure you restart Visual Studio after installing the update.**
 
 ## Add Nightly NuGet Feed
 You need to configure NuGet to use the feed that contains nightly builds.
