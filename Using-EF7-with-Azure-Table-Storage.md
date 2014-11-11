@@ -2,6 +2,17 @@ EF 7 includes support for Azure Table Storage (ATS).
 
 **This page does not include full instructions for setting up an EF7 project, read [Using EF7 in Traditional .NET Applications](https://github.com/aspnet/EntityFramework/wiki/Using-EF7-in-Traditional-.NET-Applications/) for detailed info.**
 
+## You need NuGet 2.8.3 or later
+The EF7 NuGet packages use some new metadata that is only supported in NuGet 2.8.3 or higher. 
+
+Note that NuGet version numbers can be confusing, while the first compatible release was branded 2.8.3 the product version of the extension is 2.8.50926.xxx.
+
+* **Visual Studio 2015** - No updates needed, a compatible version of NuGet is included.
+* **Visual Studio 2013** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca). A compatible version is also included in VS 2013 Update 4.
+* **Visual Studio 2010 and 2012** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c).
+
+**Make sure you restart Visual Studio after installing the update.**
+
 ## Install the package
 The ATS provider is shipped as the **EntityFramework.AzureTableStorage** NuGet package. You can install this from the EF7 nightly build feed.
 
