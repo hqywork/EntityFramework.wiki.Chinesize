@@ -137,22 +137,9 @@ Because your database doesn't exist yet, it will be created when the migration i
 If you make future changes to your model, you can use the ```Add-Migration``` command to scaffold a new migration to apply the corresponding changes to the database.
 
 ## Use Your Model
-You can now use your model to perform data access. Note that there is currently no Migrations support for Phone/Store apps, so you will need to use the ```DbContext.Database``` API to explicitly create the database if it doesn’t exist.
+You can now use your model to perform data access.
 
-```csharp
-public App()  
-{  
-    this.InitializeComponent();  
-    this.Suspending += this.OnSuspending;  
-  
-    using (var db = new BloggingContext())  
-    {  
-        // Migrations are not yet enabled in EF7, so use an
-        // API to create the database if it doesn't exist
-        db.Database.EnsureCreated();  
-    }  
-}  
-
+```csharp 
 private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)  
 {  
     using (var db = new BloggingContext())  
