@@ -30,6 +30,7 @@ public class CustomerContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Customer>()
+            .ForAzureTableStorage()
             .PartitionAndRowKey(c => c.LastName, c => c.FirstName);
     }
 }
