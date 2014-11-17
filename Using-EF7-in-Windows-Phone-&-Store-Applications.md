@@ -66,10 +66,10 @@ namespace Sample
         protected override void OnConfiguring(DbContextOptions builder)
         {
 #if WINDOWS_PHONE_APP
-            var connection = "Filename=GameHistory.db";
+            var connection = "Filename=Blog.db";
 #else 
             var dir = Windows.Storage.ApplicationData.Current.LocalFolder.Path; 
-            var connection = "Filename=" + System.IO.Path.Combine(dir, "GameHistory.db"); 
+            var connection = "Filename=" + System.IO.Path.Combine(dir, "Blog.db"); 
 #endif
 
             builder.UseSQLite(connection);
