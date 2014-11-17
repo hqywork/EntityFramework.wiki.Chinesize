@@ -76,7 +76,7 @@ In hash called EF:Data:&lt;EntityType&gt;:&lt;PK_value&gt; update the entries wi
 1. If WHERE clause specifies only primary key just use EF:PKIndex:&lt;EntityType&gt; to find &lt;PK_value&gt;s that satisfy the WHERE clause.
 2. Otherwise have to do table scan i.e. use EF:PKIndex:&lt;EntityType&gt; to give complete list of PKs for table. Then loop over that list getting the data back for each &lt;PK_value&gt;. Look through the data to see if it satisfies the WHERE clause.
 
-It is important that we make it possible/easy to add additional indexes or other structures to avoid the scan for case 2. We also need to make sure that doing 2 without an additional index is logged as as a warning. We should also look into more than just logging a warning to help people get appropriate perf for the queries they like. Ultimately it would be great to dynamically and transparently create appropriate indexes.
+It is important that we make it possible/easy to add additional indexes or other structures to avoid the scan for case 2. We also need to make sure that doing 2 without an additional index is logged as a warning. We should also look into more than just logging a warning to help people get appropriate perf for the queries they like. Ultimately it would be great to dynamically and transparently create appropriate indexes.
 
 ### Query: Projection
 
