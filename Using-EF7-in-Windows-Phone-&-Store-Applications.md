@@ -126,7 +126,7 @@ In desktop/server applications you would normally use the ```Apply-Migration``` 
 ```
 using (var db = new BloggingContext())
 {
-   db.Database.AsMigrationsEnabled().ApplyMigrations();
+   db.Database.AsRelational().ApplyMigrations();
 }
 ```
 
