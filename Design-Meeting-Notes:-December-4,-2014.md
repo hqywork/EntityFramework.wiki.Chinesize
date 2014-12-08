@@ -109,3 +109,7 @@ Hopefully in the future we can implement the combined query semantics and then e
 Recent changes mean that when a new migration is added it will be placed into the same namespace as the previous namespace for that context. There was agreement that this was good, but the following tweaks were suggested:
 * Currently, the namespace is used to determine the folder location. No attempt is made to look at the file system. This is fine when namespaces match file system structure, but will result in people doing manual work to move scaffolded migrations when the file system and namespace to not align. To fix this, we will look for a file with the expected name in the project structure and, if found, use that as the folder location for the new migration. If no such file is found the namespace will be used as it is now.
 * Currently migrations for a context are put in the Migrations folder/namespace. If multiple contexts are used then migrations for the new context must be manually moved. Instead, if migrations for a second context are scaffolded they will be put into a Migrations/ContextName folder/namespace. Note that this may require fully-qualifying the context name in the attribute to avoid conflicts.
+
+# Discussion
+
+Please use the design meeting [discussion issue](https://github.com/aspnet/EntityFramework/issues/1248) to provide feedback, ask questions, etc.
