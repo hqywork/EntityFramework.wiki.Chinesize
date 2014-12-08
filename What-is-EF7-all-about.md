@@ -11,7 +11,7 @@ EF7 is a lightweight and extensible version of Entity Framework that enables new
 The "elevator pitch" is easy, but what does that really mean. Here are a few blog posts that dig into the changes coming in EF7:
 * [EF7 - New Platforms, New Data Stores](http://blogs.msdn.com/b/adonet/archive/2014/05/19/ef7-new-platforms-new-data-stores.aspx)
 * [EF7 - What Does “Code First Only” Really Mean](http://blogs.msdn.com/b/adonet/archive/2014/10/21/ef7-what-does-code-first-only-really-mean.aspx)
-* [EF7 – v1 or v7?](http://blogs.msdn.com/b/adonet/archive/2014/10/27/ef7-v1-or-v7.aspx)
+* [EF7 - v1 or v7?](http://blogs.msdn.com/b/adonet/archive/2014/10/27/ef7-v1-or-v7.aspx)
 * [EF7 - Priorities, Focus, and Initial Release](http://blogs.msdn.com/b/adonet/archive/2014/12/02/ef7-priorities-focus-and-initial-release.aspx)
 
 ## Trying it out
