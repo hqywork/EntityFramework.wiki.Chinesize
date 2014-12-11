@@ -65,6 +65,7 @@ However, the chances of getting incorrect behavior if DetectChanges is not calle
 - DbSet.Local (or equivalent)
 - DbContext.Entry
 - DbChangeTracker.Entries
+
 These are basically the places where you are about to look at local data and/or entity state and hence detecting changes can be important.
 
 # DbContext/DbSet methods
