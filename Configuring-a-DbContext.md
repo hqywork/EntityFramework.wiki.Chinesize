@@ -48,7 +48,7 @@ This approach doesn't really lend itself to testing (unless you target the full 
 ```C#
 public class BloggingContext : DbContext
 {
-    public CycleSalesContext(DbContextOptions options)
+    public BloggingContext(DbContextOptions options)
         : base(options)
     { }
 
