@@ -6,7 +6,7 @@ Previous versions of EF supported database initializers that would execute the f
 
 In EF7 we will have Migrations from the start and we intend to guide people to use Migrations for most database creation scenarios. We do not intend to support automatic initializers since they added a lot of complexity and hampered understanding of what was going on due to the high level of magic.
 
-However, we currently still believe that there is value in being able to create databases at runtime without directly using Migrations. The main scenarios for his are testing and rapid prototyping, although it could also be useful for automatically creating a database on first run when working with devices. (For this last scenario it may be better to scaffold a migration, deploy it with the app, and then have the ability to easily run this migration on the device when the app is initializing. Of course, when using SQLite the database file itself could be deployed for new apps.)
+However, we currently still believe that there is value in being able to create databases at runtime without directly using Migrations. The main scenarios for this are testing and rapid prototyping, although it could also be useful for automatically creating a database on first run when working with devices. (For this last scenario it may be better to scaffold a migration, deploy it with the app, and then have the ability to easily run this migration on the device when the app is initializing. Of course, when using SQLite the database file itself could be deployed for new apps.)
 
 Given that we want to have some form of runtime database creation there are several questions that arise.
 
