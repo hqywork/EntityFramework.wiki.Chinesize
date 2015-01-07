@@ -60,19 +60,22 @@ There are other options we considered that also don't work:
 ### What we're doing in EF7
 
 The flow for EF7 and ASP.NET 5 will be:
-* Detect any types that derive from `DbContext` in the project being deployed (or it's project references).
-* Search all projects in the solution to see if there are any types that derive from `Migration` and have a `[ContextType]` attribute that references the derived context type. 
- * Searching all projects is required because there is no requirement for the migrations project to be referenced by the application (or a library that contains the context).
-* If there aren't any migrations, provide the user with an informational message that deployment cannot apply migrations or create the database. This will typically only be the case when EF is targeting an existing database that isn't maintained by EF.
-* If there are migrations, provide a checkbox to apply migrations during deployment (and the ability to preview the script to be used)
- * Use the migrations command line tool to create a script that will apply migrations (`k ef migration script`). 
-  * The command is run on the project that contains the migrations and specifies the project being deployed as the startup project.
-  * This script is 'idempotent' in that it will use the `__MigrationsHistory` table to ensure that each migration is only applied once. This means we can calculate a script locally and it is safe to apply to the remote database regardless of its current state. 
-  * Note the command doesn't currently produce the idempotent script (tracked by issue #1280).
-  * Note there is currently no way to specify the startup project (tracked by issue #823).
- * Use the dbFullSql MSDeploy provider to execute the script as part of deployment
 
-There are some assumptions/limitations for this approach to work:
+1. Detect any types that derive from `DbContext` in the project being deployed (or it's project references).
+1. Search all projects in the solution to see if there are any types that derive from `Migration` and have a `[ContextType]` attribute that references the derived context type. 
+ * Searching all projects is required because there is no requirement for the migrations project to be referenced by the application (or a library that contains the context).
+1. If there aren't any migrations, provide the user with an informational message that deployment cannot apply migrations or create the database. This will typically only be the case when EF is targeting an existing database that isn't maintained by EF.
+1. If there are migrations, provide a checkbox to apply migrations during deployment (and the ability to preview the script to be used)
+ * Use the migrations command line tool to create a script that will apply migrations (`k ef migration script`). 
+ * The command is run on the project that contains the migrations and specifies the project being deployed as the startup project.
+ * This script is 'idempotent' in that it will use the `__MigrationsHistory` table to ensure that each migration is only applied once. This means we can calculate a script locally and it is safe to apply to the remote database regardless of its current state. 
+ * Note the command doesn't currently produce the idempotent script (tracked by issue #1280).
+ * Note there is currently no way to specify the startup project (tracked by issue #823).
+1. Use the dbFullSql MSDeploy provider to execute the script as part of deployment
+
+## Limitations
+
+There are some assumptions/limitations of this approach:
 * We generate the script locally so your app would need to be targeting the same database provider as when deployed. There is currently no way to change the provider via `config.json` so this seems reasonable for the moment. When we enable this in the future, we may need to apply any overrides to the provider when generating the script.
 * The context and migrations must be defined in projects within the solution.
 * The migrations project must have the **EntityFramework.Commands** package installed and have it registered under commands in `project.json` as the `ef` command.
