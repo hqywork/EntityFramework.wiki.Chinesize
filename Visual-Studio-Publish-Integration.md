@@ -1,8 +1,8 @@
 # EF7 and Visual Studio Publish
 
 In Visual Studio you can **right-click -> Publish...** on an project to walk thru a deployment wizard. This wizard should help you configure/deploy all aspects of your application, including databases. There are two aspects of database deployment that apply to Entity Framework.
-* **Configure a connection string** to be used in the deployed application that differs from the connection string used during development.
-* **Apply any pending migrations** for models that use Migrations to maintain the database.
+* **[Configure a connection string](#configure-a-connection-string)** to be used in the deployed application that differs from the connection string used during development.
+* **[Apply any pending migrations](#apply-any-pending-migrations)** for models that use Migrations to maintain the database.
 
 ## Configure a connection string
 
