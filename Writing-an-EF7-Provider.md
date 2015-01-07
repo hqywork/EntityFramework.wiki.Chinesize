@@ -1,3 +1,7 @@
+
+# THE INFORMATION ON THIS PAGE IS OUT OF DATE
+# WE WILL BE UPDATING IT SOON
+
 EF provides a set of Core APIs and services that make it easier to manage the
 interaction of in-memory objects and persistent data storage.
 This core is agnostic of all data store specific details,
