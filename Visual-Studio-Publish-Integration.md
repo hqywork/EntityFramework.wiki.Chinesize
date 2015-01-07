@@ -79,4 +79,4 @@ There are some assumptions/limitations of this approach:
 * We generate the script locally so your app would need to be targeting the same database provider as when deployed. There is currently no way to change the provider via `config.json` so this seems reasonable for the moment. When we enable this in the future, we may need to apply any overrides to the provider when generating the script.
 * The context and migrations must be defined in projects within the solution.
 * The migrations project must have the **EntityFramework.Commands** package installed and have it registered under commands in `project.json` as the `ef` command.
-* If the connection string is defined in `project.json` but is then not used or overridden by code the connection string override will not apply.
+* If the connection string is defined in `config.json` but is then not used or overridden by code the connection string override will not apply.
