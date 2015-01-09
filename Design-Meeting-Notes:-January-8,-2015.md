@@ -47,11 +47,8 @@ The example from above would now look like this:
 
 ```
 categories
-    .Include(c => c.Products)
-        .ThenInclude(p => p.Reviews)
-            .ThenInclude(r => r.Author)
-    .Include(c => c.Products)
-        .ThenInclude(p => p.Supplier);
+    .Include(c => c.Products).ThenInclude(p => p.Reviews).ThenInclude(r => r.Author)
+    .Include(c => c.Products).ThenInclude(p => p.Supplier);
 ```
 
 Please use the [design meeting discussion issue](https://github.com/aspnet/EntityFramework/issues/1382) to provide feedback, ask questions, etc.
