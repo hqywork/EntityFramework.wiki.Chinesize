@@ -55,13 +55,13 @@ The credentials from a connection string (or other means of specifying a connect
 
 By default, messages will not contain any application data. This helps protect data since these messages may be displayed to an end user or be logged. Displaying exceptions to an end user is not recommended, but is not an uncommon occurrence (both intentionally and unintentionally). This also helps protect data that may be logged to a location that does not have the same permissions as the database.
 
-**Note:** This guarantee is no longer applicable to logging messages if the [IncludeSensitiveDataInLog](https://github.com/aspnet/EntityFramework/issues/1374) flag is enabled.
+**WARNING:** This guarantee is no longer applicable to logging messages if the [IncludeSensitiveDataInLog](https://github.com/aspnet/EntityFramework/issues/1374) flag is enabled.
 
 ### Security Guarantee: Logging state does not contain application data
 
 State passed to `ILogger.Write` (such as the state and exception parameter) will not contain references to application data or objects from which application data can be obtained. Since some logging frameworks may store the state information to a log, it could inadvertently end up in an insecure location.
 
-**Note:** This guarantee is no longer applicable to logging messages if the [IncludeSensitiveDataInLog](https://github.com/aspnet/EntityFramework/issues/1374) flag is enabled.
+**WARNING:** This guarantee is no longer applicable to logging state if the [IncludeSensitiveDataInLog](https://github.com/aspnet/EntityFramework/issues/1374) flag is enabled.
 
 ### Security Note: [IncludeSensitiveDataInLog](https://github.com/aspnet/EntityFramework/issues/1374) flag results in application data in logging state and messages
 
