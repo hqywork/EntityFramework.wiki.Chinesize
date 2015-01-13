@@ -54,7 +54,7 @@ This approach is flawed for a number of reasons:
 #### Other options that won't work
 
 There are other options we considered that also don't work:
-* Running migrations from deployment machine is not always possible because the deployment machine may not be able to connect to the database server (this is true by default in SQL Azure). We provide components that can be used to achieve this for automated deployment scenarios when it is possible, but it's not something we can use for this publish wizard.
+* Running migrations from client machine being deployed from is not always possible because the deployment machine may not be able to connect to the database server (this is true by default in SQL Azure). We provide components that can be used to achieve this for automated deployment scenarios when it is possible, but it's not something we can use for this publish wizard.
 * Back in EF4.3 days we investigated creating an MSDeploy provider that could apply the migrations from the app server. The issues is that MSDeploy tasks are executed with elevated permissions and executing migrations involves running user code. Therefore, this is unacceptable from a security perspective.
 	
 ### What we're doing in EF7
