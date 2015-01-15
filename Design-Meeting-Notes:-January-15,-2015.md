@@ -57,3 +57,7 @@ We will remove the basic model builder and the ForeignKey API.
 Notes:
  - We will add back no-navigation property overloads to the HasOne/WithMany APIs. We don't think this will be very confusing, and will allow code like Identity to use the fluent API to define its models
  - We will consider a mode of using the convention model builder that throws in model validation if there is anything in the model that hasn't been explicitly configured. See [Issue 1414](https://github.com/aspnet/EntityFramework/issues/1414).
+
+# Discussion
+
+Please use the [discussion issue](https://github.com/aspnet/EntityFramework/issues/1415) to provider feedback, ask questions, etc.
