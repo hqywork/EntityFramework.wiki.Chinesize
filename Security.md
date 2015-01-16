@@ -39,6 +39,19 @@ EF requires connection information to be able to connect to the data store. This
 **Guidance:** Sensitive parts of the connection information that will be passed to EF (such as username and password) should be stored in a secure location.
 
 
+## Microsoft.AspNet.Diagnostics.Entity
+
+### Security Note: Microsoft.AspNet.Diagnostics.Entity only intended for development
+
+The components in Microsoft.AspNet.Diagnostics.Entity are only intended for use during development of an application and should not be enabled when the application is deployed. This includes the Database Error Page and the Migration Endpoint. These components do not implement any security controls.
+ 
+The Database Error Page displays exception details which may contain sensitive information, such as database object names. The Database Error Page also displays details of the context and migration classes in your source code (or the libraries that it references) and allows migrations to be applied to the database. The Migrations Endpoint allows the migration process to be initiated for any context within your source code (or the libraries that it references). 
+ 
+**Guidance:** Only register the middleware from Microsoft.AspNet.Diagnostics.Entity when developing an application. This is best achieved by making use of the functionality in Startup.cs that allows additional configuration for development mode.
+ 
+**Guidance:** If you chose to enable these components in a deployed application, you are responsible for ensuring the appropriate security controls are implemented to prevent unauthorized access.
+
+
 
 ## Logging, Exceptions, Etc.
 
