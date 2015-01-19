@@ -55,8 +55,11 @@ Remove these properties which are exposed to support extension methods
 - [ ] Logger
 - [ ] Model
 
+
+***
+
 - [ ] Remove IDatabaseInternals and replace with the following explicit interface implementations:
-- [ ] IAccessor<DataStoreCreator>
-- [ ] IAccessor<ILogger>
-- [ ] IAccessor<IModel>
-- [ ] IAccessor<ServiceProvider>
+- [ ] `IAccessor<DataStoreCreator>`
+- [ ] `IAccessor<ILogger>`
+- [ ] `IAccessor<IModel>`
+- [ ] `IAccessor<ServiceProvider>`
