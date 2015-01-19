@@ -2,6 +2,12 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [January 16, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-January-16,-2015)
+
+- [API Review #1 (DbContext, DbSet, Database)](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-January-16,-2015#api-review-1-dbcontext-dbset-database)
+
+Please use the design meeting [discussion issue](https://github.com/aspnet/EntityFramework/issues/1415) to provide feedback, ask questions, etc.
+
 ## [January 15, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-January-15,-2015)
 
 - [ForeignKey API](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-January-15,-2015#foreignkey-api)
