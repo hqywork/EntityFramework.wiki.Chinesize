@@ -2,6 +2,10 @@
 
 ## DbContext
 
+### Constructors
+
+- [ ] Remove constructor that takes service provider AND options. This isn't needed because the options can just be registered in the service provider.
+
 ### Configuration
 
 - [ ] Move `AutoDetectChangesEnabled` to `DbContext.ChangeTracker` and remove the `Configuration` property. Future settings can be grouped where they belong and we won't have a general settings/configuration drill down.
