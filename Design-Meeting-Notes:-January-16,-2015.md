@@ -8,7 +8,7 @@
 
 ### Configuration
 
-- [ ] Move `AutoDetectChangesEnabled` to `DbContext.ChangeTracker` and remove the `Configuration` property. Future settings can be grouped where they belong and we won't have a general settings/configuration drill down.
+- [X] Move `AutoDetectChangesEnabled` to `DbContext.ChangeTracker` and remove the `Configuration` property. Future settings can be grouped where they belong and we won't have a general settings/configuration drill down.
 
 ### Add/Attach/Update/Remove
 
