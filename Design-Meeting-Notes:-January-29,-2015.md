@@ -20,7 +20,7 @@ This has the following advantages:
 * Allows any FK to have an invalid value. This means that when a relationship has been severed using navigation properties, this change can be tracked in the entity by setting the FK to the invalid sentinel value. This removes the need to track "conceptually null" FK values as we did in the old stack.
 
 The main disadvantages are:
-* It may not be possible to use EF with legacy databases where the entire key space is considered valid. However, we could provide an option that would allow EF to be used with such a database at the expense of some of the higher-level behaviors that make use of the sentinel value.
+* It may not be possible to use EF with legacy databases where the entire key space is considered valid. However, it should possible to map such columns to nullable CLR types or we could provide an option that would allow EF to be used with such a database at the expense of some of the higher-level behaviors that make use of the sentinel value.
 * The CLR default for enums usually needs to be treated as a valid value. The mitigation for this is to configure the sentinel for enum keys to some other value--for example, -1.
 
 Sentinel values must be consistent across an entire key chain--that is any foreign keys must use the same sentinel as their primary key. However, it is probably simpler to just set the sentinel per property and then rely on model conventions and validation to ensure consistency.
