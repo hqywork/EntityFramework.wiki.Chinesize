@@ -27,4 +27,4 @@ Sentinel values must be consistent across an entire key chain--that is any forei
 
 ## Discussion
 
-Please use the discussion issue to provider feedback, ask questions, etc.
+Please use the [discussion issue](https://github.com/aspnet/EntityFramework/issues/1509) to provider feedback, ask questions, etc.
