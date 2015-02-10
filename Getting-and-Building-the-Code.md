@@ -1,9 +1,8 @@
 ## Prerequisites
 In order to work with the code base, you'll first need to install the following.
 
-* [Visual Studio 2013](http://www.microsoft.com/visualstudio/downloads) (with [Update 2](http://go.microsoft.com/fwlink/?LinkId=390521))
+* [Visual Studio 2015](http://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs)
 * [K Version Manager](https://github.com/aspnet/Home/wiki/version-manager)
-* PowerShell 4
 
 ## Clone the repository
 Using your favorite [git](http://git-scm.com/) client, clone the repository.
