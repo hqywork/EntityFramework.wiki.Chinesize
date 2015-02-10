@@ -3,10 +3,10 @@
 ## You need NuGet 2.8.3 or later
 The EF7 NuGet packages use some new metadata that is only supported in NuGet 2.8.3 or higher. 
 
-Note that NuGet version numbers can be confusing, while the first compatible release was branded 2.8.3 the product version of the extension is 2.8.50926.xxx.
+_Note that NuGet version numbers can be confusing, while the first compatible release was branded 2.8.3 the product version of the extension is 2.8.50926.xxx._
 
 * **Visual Studio 2015** - No updates needed, a compatible version of NuGet is included.
-* **Visual Studio 2013** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca). A compatible version is also included in VS 2013 Update 4.
+* **Visual Studio 2013** - A compatible version is also included in VS 2013 Update 4.
 * **Visual Studio 2010 and 2012** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c).
 
 **Make sure you restart Visual Studio after installing the update.**
@@ -23,8 +23,6 @@ You need to configure NuGet to use the feed that contains nightly builds.
 ## Install Entity Framework (and Providers)
 To get EF7 in your project you need to install the package for the database provider(s) you want to target. Currently, the following provider packages are available for full .NET applications:
 * EntityFramework.SqlServer
-* EntityFramework.SQLite
-* EntityFramework.AzureTableStorage
 * EntityFramework.InMemory
 
 The sample on this page uses SQL Server, so you would run the following command in Package Manager Console. **Make sure the nightly feed you created in the previous step is selected before running this command**.
@@ -33,10 +31,8 @@ The sample on this page uses SQL Server, so you would run the following command 
 PM> Install-Package EntityFramework.SqlServer –Pre
 ```
 
-**To use a relational database provider, your application will need to target .NET 4.5.1.**
-
 ## Create Your Model
-Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too). The following code uses the **EntityFramework.SqlServer** provider.
+Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too).
 
 ```csharp
 using Microsoft.Data.Entity;
@@ -59,7 +55,8 @@ namespace Sample
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Blog>()
-                .OneToMany(b => b.Posts, p => p.Blog)
+                .HasMany(b => b.Posts)
+                .WithOne(p => p.Blog)
                 .ForeignKey(p => p.BlogId);
         }
     }
