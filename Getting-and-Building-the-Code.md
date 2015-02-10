@@ -1,8 +1,11 @@
 ## Prerequisites
 In order to work with the code base, you'll first need to install the following.
 
-* [Visual Studio 2015](http://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs)
-* [K Version Manager](https://github.com/aspnet/Home/wiki/version-manager)
+* **Visual Studio 2015** - Install the latest [pre-release of Visual Studio 2015](http://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs)
+* **K Version Manager** - Run the following command from an administrator command prompt.
+```Batchfile
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/release/kvminstall.ps1'))}"
+```
 
 ## Clone the repository
 Using your favorite [git](http://git-scm.com/) client, clone the repository.
