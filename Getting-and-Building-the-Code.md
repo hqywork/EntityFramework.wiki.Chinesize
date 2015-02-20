@@ -16,7 +16,7 @@ git clone https://github.com/aspnet/EntityFramework.git
 
 ## Build from Visual Studio
 Before opening the solution, you'll need run the following from Command Prompt.
-Navigate to the root directory of the solution (~"/EntityFrameWork") in your command prompt, and issue the command:
+Navigate to the root directory of the solution (~"/EntityFramework") in your command prompt, and issue the command:
 
 ``` Batchfile
 build initialize
