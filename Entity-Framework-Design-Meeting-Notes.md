@@ -4,6 +4,9 @@ The Entity Framework team has a weekly design meeting in which we discuss/recap 
 
 ## [April 16, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-April-16-2015)
 
+- [
+Layout of Generated Code in OnModelCreating()](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-April-16-2015#layout-of-generated-code-in-onModelCreating())
+
 ## [January 29, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-January-29,-2015)
 
 - [Key value sentinels](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-January-29,-2015#key-value-sentinels)
