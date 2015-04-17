@@ -52,12 +52,13 @@ If there is only one facet of any kind for a given property then either:
             });
 
 or
-            modelBuilder.Entity<Product>(entity =>
-            {
-                entity.Property(e => e.SomeProperty).ForSqlServer().FacetForSqlServer1("YYYYY");
 
-                entity.Property(e => e.SomeOtherProperty)...
-            });
+`            modelBuilder.Entity<Product>(entity =>`
+            `{`
+                `entity.Property(e => e.SomeProperty).ForSqlServer().FacetForSqlServer1("YYYYY");`
+
+                `entity.Property(e => e.SomeOtherProperty)...`
+            `});`
 
 
 If there are multiple non-SqlServer but only one SqlServer facet then this:
