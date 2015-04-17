@@ -97,8 +97,6 @@ And if there are multiple SqlServer server facets this:
             });
 ```
 
-where we use the nested closure for ForSqlServer() facets but only if there are 2+ of them.
-
 Note: for all Relational facets we are calling the ForSqlServer() overrides of them instead of the ForRelational() ones. 
 
 Reasons for this approach were:
