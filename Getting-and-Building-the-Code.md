@@ -1,10 +1,10 @@
 ## Prerequisites
 In order to work with the code base, you'll first need to install the following.
 
-* **Visual Studio 2015** - Install the latest [pre-release of Visual Studio 2015](http://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs)
-* **K Version Manager** - Run the following command from an administrator command prompt.
+* **Visual Studio 2015** - Install the latest [pre-release of Visual Studio 2015](https://www.visualstudio.com/downloads/visual-studio-2015-ctp-vs)
+* **DNX Version Manager** - Run the following command from an administrator command prompt.
 ```Batchfile
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/release/kvminstall.ps1'))}"
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
 ```
 
 ## Clone the repository
@@ -28,7 +28,7 @@ You should be able to open the solution in Visual Studio now.
 
 ### Run tests
 
-Our tests are written using [xUnit.net 2.0](https://github.com/xunit/xunit), and can be run using your favorite runner. We recommend either the [xUnit.net runner for Visual Studio 2013](http://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099) or [TestDriven.Net](http://www.testdriven.net/).
+Our tests are written using [xUnit.net 2.0](https://github.com/xunit/xunit), and can be run using your favorite runner. We recommend either the built-in Visual Studio test runner or [TestDriven.Net](http://www.testdriven.net/).
 
 ## Build from Command Prompt
 You can also build and run tests from Command Prompt using the following.
