@@ -101,7 +101,7 @@ Note: for all Relational facets we are calling the ForSqlServer() overrides of t
 
 Reasons for this approach were:
 1) terseness is good - if there is only a small number of facets (the usual case) we'd rather the code took up as few lines as possible,
-2) grouping - it's nice to have all the facets affecting one property grouped together and separate from those for another property.
+2) readability - it's more readable to have all the facets affecting one property grouped together and separated from those for another property.
 
 There was also discussion that we are thinking of making the ForRelational() facets top-level i.e. not needing a ForRelational() call first. If/when that happens they would be grouped with the FacetWithNoForClauseN() calls instead.
 
