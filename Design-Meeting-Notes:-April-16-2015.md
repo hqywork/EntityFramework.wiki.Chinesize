@@ -2,7 +2,7 @@
 
 ## Background
 
-We originally had code laid out like this:
+In the code Reverse Engineering generated inside the OnModelCreating() method in the generated DbContext class we originally had code laid out like this:
 
             modelBuilder.Entity<Product>(entity =>
             {
