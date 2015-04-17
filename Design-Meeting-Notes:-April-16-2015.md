@@ -44,25 +44,29 @@ At the meeting on April 16 2015 we discussed multiple approaches and agreed to d
 
 If there is only one facet of any kind for a given property then either:
 
+```
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e => e.SomeProperty).FacetWithNoForClause1("AAA");
 
                 entity.Property(e => e.SomeOtherProperty)...
             });
+```
 
 or
 
-`            modelBuilder.Entity<Product>(entity =>`
-            `{`
-                `entity.Property(e => e.SomeProperty).ForSqlServer().FacetForSqlServer1("YYYYY");`
+```
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.Property(e => e.SomeProperty).ForSqlServer().FacetForSqlServer1("YYYYY");
 
-                `entity.Property(e => e.SomeOtherProperty)...`
-            `});`
-
+                entity.Property(e => e.SomeOtherProperty)...
+            });
+```
 
 If there are multiple non-SqlServer but only one SqlServer facet then this:
 
+```
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e => e.SomeProperty)
@@ -72,8 +76,10 @@ If there are multiple non-SqlServer but only one SqlServer facet then this:
 
                 entity.Property(e => e.SomeOtherProperty)...
             });
+```
 
 And if there are multiple SqlServer server facets this:
+```
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e => e.SomeProperty)
@@ -89,6 +95,7 @@ And if there are multiple SqlServer server facets this:
 
                 entity.Property(e => e.SomeOtherProperty)...
             });
+```
 
 where we use the nested closure for ForSqlServer() facets but only if there are 2+ of them.
 
