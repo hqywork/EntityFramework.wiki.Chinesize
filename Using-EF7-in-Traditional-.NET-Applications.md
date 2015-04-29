@@ -1,31 +1,27 @@
 # Using EF7 in Traditional .NET Applications
 
-## You need NuGet 2.8.3 or later
-The EF7 NuGet packages use some new metadata that is only supported in NuGet 2.8.3 or higher. 
+## Beta 4 is recommended
+These instructions are for using EF7 Beta 4, which is the currently recommended release for trying out EF7 in Full .NET applications. 
 
-_Note that NuGet version numbers can be confusing, while the first compatible release was branded 2.8.3 the product version of the extension is 2.8.50926.xxx._
+You can find nightly builds of the EF7 code base hosted on **https://www.myget.org/F/aspnetvnext/api/v2/** but the code base is rapidly changing and we do not maintain up-to-date documentation for getting started.
+
+## You need NuGet 2.8.5 or later
+The EF7 NuGet packages use some new metadata that is only supported in NuGet 2.8.5 or higher. 
+
+_Note that NuGet version numbers can be confusing, while the first compatible release was branded 2.8.5 the product version of the extension is 2.8.60318.xxx._
 
 * **Visual Studio 2015** - No updates needed, a compatible version of NuGet is included.
-* **Visual Studio 2013** - A compatible version is also included in VS 2013 Update 4.
+* **Visual Studio 2013** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca).
 * **Visual Studio 2010 and 2012** - You can [download a compatible version from Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c).
 
 **Make sure you restart Visual Studio after installing the update.**
-
-## Add Nightly NuGet Feed
-You need to configure NuGet to use the feed that contains nightly builds.
-
-1. In Visual Studio select **Tools –> NuGet Package Manager –> Package Manager Settings**
-* Select **Package Sources** from the left pane 
-* Select the **+** button to add a new source
-* Enter **Nightly Builds** as the Name and **https://www.myget.org/F/aspnetvnext/api/v2/** as the Source 
-* Click **Add** and then **OK**
 
 ## Install Entity Framework (and Providers)
 To get EF7 in your project you need to install the package for the database provider(s) you want to target. Currently, the following provider packages are available for full .NET applications:
 * EntityFramework.SqlServer
 * EntityFramework.InMemory
 
-The sample on this page uses SQL Server, so you would run the following command in Package Manager Console. **Make sure the nightly feed you created in the previous step is selected before running this command**.
+The sample on this page uses SQL Server, so you would run the following command in Package Manager Console. 
 
 ```
 PM> Install-Package EntityFramework.SqlServer –Pre
@@ -35,10 +31,8 @@ PM> Install-Package EntityFramework.SqlServer –Pre
 Define a context and classes that make up your model. Note the new **OnConfiguring** method that is used to specify the data store provider to use (and, optionally, other configuration too).
 
 ```csharp
-using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Metadata;
 using System.Collections.Generic;
-using System.Linq;
+using Microsoft.Data.Entity;
 
 namespace Sample
 {
@@ -47,16 +41,23 @@ namespace Sample
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
 
-        protected override void OnConfiguring(DbContextOptions builder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            builder.UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
+            // Visual Studio 2015 | Use the LocalDb 12 instance created by Visual Studio
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;");
+
+            // Visual Studio 2013 | Use the LocalDb 11 instance created by Visual Studio
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
+
+            // Visual Studio 2012 | Use the SQL Express instance created by Visual Studio
+            //optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Blog>()
-                .HasMany(b => b.Posts)
-                .WithOne(p => p.Blog)
+                .Collection(b => b.Posts)
+                .InverseReference(p => p.Blog)
                 .ForeignKey(p => p.BlogId);
         }
     }
