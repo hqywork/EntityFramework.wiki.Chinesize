@@ -59,15 +59,17 @@ public class BloggingContext : DbContext
 **Application code**
 
 ```C#
-var options = new DbContextOptions().UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;");
-var context = new BloggingContext(options);
+var optionsBuilder = new DbContextOptionsBuilder();
+optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;");
+var context = new BloggingContext(optionsBuilder.Options);
 ```
 
 **Test code**
 
 ```C#
-var options = new DbContextOptions().UseInMemory();
-var context = new BloggingContext(options);
+var optionsBuilder = new DbContextOptionsBuilder();
+optionsBuilder.UseInMemoryStore();
+var context = new BloggingContext(optionsBuilder.Options);
 ```
 
 ## Config inline in code but overridden from external code
@@ -228,7 +230,7 @@ This approach can be used in any of the above scenarios, rather than specifying 
 ```JSON
 "EntityFramework": {
     "BloggingContext": { 
-        "ConnectionString" : "Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;"
+        "ConnectionString" : "Server=.\\SQLEXPRESS;Database=Blogging;integrated security=True;"
     }
 }
 ```
@@ -266,7 +268,7 @@ This method would decide what to do based on the key/value pairs from config. In
 "EntityFramework": {
     "BloggingContext": { 
         "DataStore" : "EntityFramework.SqlServer",
-        "ConnectionString" : "Server=.\SQLEXPRESS;Database=Blogging;integrated security=True;"
+        "ConnectionString" : "Server=.\\SQLEXPRESS;Database=Blogging;integrated security=True;"
     }
 }
 ```
