@@ -319,7 +319,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Blog> Blogs { get; set; }
 
     protected override void OnConfiguring(DbContextOptions options)
-    {        options.UseSqlServer();
+    {        
+        options.UseSqlServer();
     }
 }
 ```
