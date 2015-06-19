@@ -19,7 +19,7 @@ The following principles define what we are trying to achieve with EF7. They sha
 * If a method/property/type does pretty much the same thing then it has the same name (unless the old name was really bad) 
 * Names that app developers don't generally type out (i.e. Fluent API return types, low level building blocks, etc.) do not need to stay the same.
  
-**EF7 fits into the vision/messaging around Cross-platform .NET, .NET Core, ASP.NET 5, etc. **
+**EF7 fits into the vision/messaging around Cross-platform .NET, .NET Core, ASP.NET 5, etc.**
 * We shouldn't be coming up with messaging around cross-platform/lightweight/modular/re-write at the EF level.
 * We're just part of the larger picture of what's happening in .NET at Microsoft.
 
