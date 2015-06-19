@@ -23,7 +23,7 @@ The following principles define what we are trying to achieve with EF7. They sha
 * We shouldn't be coming up with messaging around cross-platform/lightweight/modular/re-write at the EF level.
 * We're just part of the larger picture of what's happening in .NET at Microsoft.
 
-**EF7 runs everywhere that people write .NET code **
+**EF7 runs everywhere that people write .NET code**
 * The core runs everywhere, but not all providers will run on every platform.
 * EF7 supports the default provider(s) for each platform (i.e. SQL Server for Windows, SQLite for devices, Postgres/MySql for Mac/Linux).
 
@@ -63,7 +63,7 @@ The following conventions help us have a consistent API across our product. We a
 * We don't have a global prefix that we use everywhere (in EF6 we think we overdid the "Db" prefixing)
 * We use the "Db" prefix where there is a need to qualify something to EF (usually when it is a very general concept such as "Model")
 * Types that implement a base type, interface, etc. from Core (i.e. the relational implementation of DataStore) use the same namespace as the type they implement and append a library specific prefix (i.e. RelationalDataStore).
- * Example prefixes:
+* Example prefixes:
  * Relational
  * SqlServer
  * Sqlite
@@ -71,7 +71,7 @@ The following conventions help us have a consistent API across our product. We a
  
 **Postfixes**
 * When applying the a postfix we do not shorten the name of the component it relates to (i.e. DbModel/DbModelBuilder is correct and DbModel/ModelBuilder would be wrong)
- * Common postfixes:
+* Common postfixes:
  * Factory = a component that creates a new instance of a particular type
  * Source = a component that locates the correct instance of a particular type
  * Cache = a component that creates or selects a component based on its presence in a cache
