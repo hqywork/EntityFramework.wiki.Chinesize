@@ -1,5 +1,8 @@
 The purpose of this page is to list out the things that help us make decisions when designing/implementing/reviewing EF7 (and later releases). This will help us make individual decisions that result in a cohesive stack.
 
+**NOTE**
+> These are principles and not hard-and-fast rules. Time constraints, user experience, or other circumstances may mean we violate the principles.
+
 ## High Level Principles
 The following principles define what we are trying to achieve with EF7. They shape how we prioritize and design features.
  
