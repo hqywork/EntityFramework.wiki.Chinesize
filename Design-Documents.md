@@ -1,6 +1,7 @@
 #Design Documents
 
 In addition to the [design meeting notes](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes), here are some other design documents we have.
+* [Guiding Principles](https://github.com/aspnet/EntityFramework/wiki/Guiding-Principles)
 * [Security](https://github.com/aspnet/EntityFramework/wiki/Security)
 * [Configuring a DbContext](https://github.com/aspnet/EntityFramework/wiki/Configuring-a-DbContext)
 * [Visual Studio Publish Integration](https://github.com/aspnet/EntityFramework/wiki/Visual-Studio-Publish-Integration)
