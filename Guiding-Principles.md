@@ -67,25 +67,25 @@ The following conventions help us have a consistent API across our product. We a
  * InMemory
  
 **Postfixes**
-•	When applying the a postfix we do not shorten the name of the component it relates to (i.e. DbModel/DbModelBuilder is correct and DbModel/ModelBuilder would be wrong)
-•	Common postfixes:
-•	Factory = a component that creates a new instance of a particular type
-•	Source = a component that locates the correct instance of a particular type
-•	Cache = a component that creates or selects a component based on its presence in a cache
-[DV] Add Builder?
+* When applying the a postfix we do not shorten the name of the component it relates to (i.e. DbModel/DbModelBuilder is correct and DbModel/ModelBuilder would be wrong)
+ * Common postfixes:
+ * Factory = a component that creates a new instance of a particular type
+ * Source = a component that locates the correct instance of a particular type
+ * Cache = a component that creates or selects a component based on its presence in a cache
+ * Builder = a component that provides an API for constructing an instance of another type. The type being constructed may or may not be immutable.
  
-Visibility
-•	By default everything is public (see Namespaces for info on categorizing things that are "Internal")
-•	If we have helper types that are strictly an implementation detail, have no foreseeable use to external code, and are ugly to have in public API we may choose to make them internal (these should be very limited).
+**Visibility**
+* By default everything is public (see Namespaces for info on categorizing things that are "Internal")
+* If we have helper types that are strictly an implementation detail, have no foreseeable use to external code, and are ugly to have in public API we may choose to make them internal (these should be very limited).
  
-Namespaces
-•	Our root namespace (Microsoft.Data.Entity) is only for types that users directly reference in their code for the majority of applications (i.e. DbContext, DbSet, etc.)
-•	We group related components into a sub-namespace if there are enough types (~5 types) or we think there will be in the future.
-•	Components that don't have a grouping go into the Infrastructure namespace
-•	We use an Internal sub-namespace to identify components that would historically have been internal types.
-•	We do not guarantee that these APIs will not break/change/etc. between releases (including minor/patch releases)
-•	We do not document these types
+**Namespaces**
+* Our root namespace (`Microsoft.Data.Entity`) is only for types that users directly reference in their code for the majority of applications (i.e. `DbContext`, `DbSet`, etc.)
+* We group related components into a sub-namespace if there are enough types (~5 types) or we think there will be in the future.
+* Components that don't have a grouping go into the `Infrastructure` namespace
+* We use an `Internal` sub-namespace to identify components that would historically have been internal types.
+ * We do not guarantee that these APIs will not break/change/etc. between releases (including minor/patch releases)
+ * We do not document these types
  
-Extension Methods
-•	Extension methods typically go in the namespace of the type they target so that they are easily discovered without importing namespaces
-•	Exceptions to this are for very common types where you may have EF referenced but the extension methods don't make sense in all places you use the target type, or the extensions methods have a generic name that may collide with other extension methods (e.g. IQuerable<T>.ToListAsync lives in System.Data.Entity rather than System.Linq)
+**Extension Methods**
+* Extension methods typically go in the namespace of the type they target so that they are easily discovered without importing namespaces
+* Exceptions to this are for very common types where you may have EF referenced but the extension methods don't make sense in all places you use the target type, or the extensions methods have a generic name that may collide with other extension methods (e.g. `IQuerable<T>.ToListAsync` lives in `System.Data.Entity` rather than `System.Linq`)
