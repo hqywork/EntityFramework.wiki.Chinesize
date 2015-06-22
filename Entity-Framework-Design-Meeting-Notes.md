@@ -4,6 +4,7 @@ The Entity Framework team has a weekly design meeting in which we discuss/recap 
 
 ## [June 18, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-June-18,-2015)
 
+- [Target Frameworks](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-June-18,-2015#target-frameworks)
 - [Default SQL Server value generation strategy](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-June-18,-2015#default-sql-server-value-generation-strategy)
 - [Table rebuilds in Migrations](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-June-18,-2015#table-rebuilds-in-migrations)
 
