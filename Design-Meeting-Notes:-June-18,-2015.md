@@ -8,4 +8,4 @@ Content coming soon...
 
 # Discussion
 
-Please use the discussion issue to provider feedback, ask questions, etc.
+Please use the [discussion issue](https://github.com/aspnet/EntityFramework/issues/2439) to provide feedback, ask questions, etc.
