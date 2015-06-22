@@ -24,11 +24,11 @@ Content coming soon...
 
 (Presented by [Nate](https://github.com/natemcmaster))
 
-We plan to implement better migration support for SQLite. Some DDL operations, such as ALTER COLUMN or DROP COLUMN, are not supported by a SQLite. The migration pipeline for SQLite will attempt to identify these cases and provide the appropriate workaround for SQLite's limitations. If no workaround is suitable, migrations will fail rather than corrupting data.
+We plan to implement better migration support for SQLite. Some DDL operations, such as ALTER COLUMN or DROP COLUMN, are not supported by SQLite. The migration pipeline for SQLite will attempt to identify these cases and provide the appropriate workaround for SQLite's limitations. If no workaround is suitable, migrations will fail rather than corrupting data.
 
-For example, we will support dropping columns in SQLite. A simple migration might look this this in code:
+For example, we will support dropping columns in SQLite. A simple migration might look this in code:
 ```c#
-public class DropColumnMigration : Migration
+public class DropLeaderColumnMigration : Migration
 {
    public override void Up(MigrationBuilder builder)
    {
@@ -38,7 +38,7 @@ public class DropColumnMigration : Migration
 }
 ```
 
-SQLite does not support `DROP COLUMN` natively, but the same result can be accomplished with a table-rebuild. EF will translate the DropColumn command from the migration into the appropriate SQL to accomplish rebuild. In this example, the following statements will drop the "leader" column from the "countries" table:
+SQLite does not support `DROP COLUMN` natively, but the same result can be accomplished with a table-rebuild. EF will translate the DropColumn command from the migration into the appropriate SQL statements. In this example, the following statements will drop the "leader" column from the "countries" table:
 ```sql
 ALTER TABLE countries RENAME TO countries_temp;
 
