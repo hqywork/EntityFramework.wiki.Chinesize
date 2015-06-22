@@ -50,6 +50,8 @@ INSERT INTO countries (name,
  population)
 SELECT name, population FROM 
 countries_temp;
+
+DROP TABLE countries_temp;
 ```
 
 
