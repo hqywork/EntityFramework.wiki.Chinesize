@@ -7,7 +7,7 @@ The `dotnet` target framework moniker was recently introduced, and Entity Framew
 Framework | When      | Why
 --------- | --------- | ---
 net45     | Always    | For Mono; To throw on ambient Transactions
-dnx451    | As needed | For DNX-specific APIs; To workaround aspnet/dnx#2031
+dnx451    | As needed | For DNX-specific APIs; To workaround [aspnet/dnx#2031](https://github.com/aspnet/dnx/issues/2031)
 dotnet    | Always    | For Windows 10, .NET Native, CoreCLR, DNX Core & all future frameworks
 dnxcore50 | As needed | For DNX-specific APIs
 netcore50 | As needed | For Windows 10 design-time
