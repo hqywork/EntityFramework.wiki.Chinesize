@@ -2,6 +2,13 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [June 18, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-June-18,-2015)
+
+- [Default SQL Server value generation strategy](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-June-18,-2015#default-sql-server-value-generation-strategy)
+- [Table rebuilds in Migrations](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-June-18,-2015#table-rebuilds-in-migrations)
+
+Please use the design meeting [discussion issue](https://github.com/aspnet/EntityFramework/issues/2439) to provide feedback, ask questions, etc.
+
 ## [April 16, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes:-April-16-2015)
 
 - [
