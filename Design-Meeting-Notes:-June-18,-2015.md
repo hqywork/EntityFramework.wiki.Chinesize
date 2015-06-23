@@ -1,7 +1,5 @@
 # Target Frameworks
 
-(Presented by [Brice](https://github.com/bricelam))
-
 The `dotnet` target framework moniker was recently introduced, and Entity Framework was updated to use it. For more information about this new target see [Oren's blog post](http://oren.codes/2015/06/16/demystifying-pcls-net-core-dnx-and-uwp-redux/). This prompted a review all of the frameworks we target and why. Here are the details.
 
 Framework | When      | Why
@@ -21,8 +19,6 @@ If Mono updates their `System.Data` API, we'll consider dropping our `net45` tar
 Content coming soon...
 
 # Table rebuilds in Migrations
-
-(Presented by [Nate](https://github.com/natemcmaster))
 
 We plan to implement better migration support for SQLite. Some DDL operations, such as ALTER COLUMN or DROP COLUMN, are not supported by SQLite. The migration pipeline for SQLite will attempt to identify these cases and provide the appropriate workaround for SQLite's limitations. If no workaround is suitable, migrations will fail rather than corrupting data.
 
