@@ -16,7 +16,17 @@ If Mono updates their `System.Data` API, we'll consider dropping our `net45` tar
 
 # Default SQL Server value generation strategy
 
-Content coming soon...
+For the past few Beta's the default key generation strategy for SQL Server has been a HiLo pattern using a sequence. We discussed changing this because:
+* The default version of SQL Azure databases (v11) does not support sequences.
+* The feedback we are seeing suggests folks expect `IDENTITY` and tend to swap back to that rather than considering the benefits of HiLo based on a sequence.
+
+Our decision is to swap back to using `IDENTITY` by default for numeric primary keys. Developers can easily opt-in to sequence based HiLo key generation using the (**soon to be renamed**) `modelBuilder.ForSqlServer().UseSequence()` API.
+
+This discussion was just around what we do by default. The following patterns will be supported by EF7.
+* `IDENTITY` key columns.
+* Key value generated during `INSERT` using a default value.
+* Key generation during `Add`, where key values are fetched from the database. We support HiLo with a sequence by default but folks could also use custom key generators to do this with a key table etc.
+* True client side key generation (probably most appropriate for `GUID`s).
 
 # Table rebuilds in Migrations
 
