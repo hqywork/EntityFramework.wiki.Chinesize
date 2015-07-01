@@ -1,3 +1,3 @@
-# Coming Soon
+# Using EF7 in Windows 10 UWP
 
-We are currently working to enable EF7 in Windows 10 UAP applications. We'll post instructions to get started as soon as we iron out a few blocking issues.
+## This content has moved to http://ef.readthedocs.org/en/latest/getting-started/uwp.html 
