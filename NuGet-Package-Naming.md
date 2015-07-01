@@ -1,7 +1,7 @@
 ## Naming Guidelines
 Packages names (and therefore assembly names) all begin with EntityFramework`major_version_number` (i.e. EntityFramework7.Core, EntityFramework7.Commands). 
 
-Providers use EntityFramework`major_version_number`.`provider_name` (i.e. EntityFramework7.SqlServer, EntityFramework7.npgsql). 
+Providers use EntityFramework`major_version_number`.`provider_name` (i.e. EntityFramework7.SqlServer, EntityFramework7.Npgsql). 
 
 ## Why Do This
 
