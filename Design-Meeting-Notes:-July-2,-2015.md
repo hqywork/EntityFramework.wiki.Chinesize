@@ -550,3 +550,7 @@ Notes
 - This is essentially what the old stack did with computed columns
 - Set this by default for computed concurrency tokens
 - Consider making it so that setting IsModified to false will reject changes to the property
+
+# Discussion
+
+Please use the [discussion issue](https://github.com/aspnet/EntityFramework/issues/2529) to provide feedback, ask questions, etc.
