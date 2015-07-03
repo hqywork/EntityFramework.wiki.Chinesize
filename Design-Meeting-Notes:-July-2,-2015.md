@@ -367,6 +367,7 @@ Notes
 - Try to educate people to either set keys or use Identity column, but not both
 - For seeding scenarios, other patterns like the sequence ones above allow mixing, but care must be taken with key space
 - Same exception is ultimately thrown if sentinel value is used when first non-sentinel value is encountered
+- Consider trying to provide more information that will help the developer decide what they should do
 
 ### No key generation with attempt to use sentinel
 
