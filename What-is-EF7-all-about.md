@@ -16,7 +16,7 @@ The "elevator pitch" is easy, but what does that really mean. Here are a few blo
 
 ## Trying it out
 
-The best way to try out EF7 is to make use of our nightly builds. You can find information on nightly builds, as well as some getting started examples, on our [Getting Started with Nightly Builds](https://github.com/aspnet/EntityFramework/wiki/Getting-Started-with-Nightly-Builds) page.
+The best way to try out EF7 is to make use of our nightly builds. You can find information on nightly builds, as well as some getting started examples, on our [Getting Started with EF7](http://ef.readthedocs.org/) page.
 
 As you try out EF7 please bear in mind that this is a very early stage in the development of the new EF codebase and there are many features that are partially implemented or not yet available.
 
