@@ -24,3 +24,4 @@ This approach provides a consistent way for providers to version and allows folk
 There are a few disadvantages to this approach.
 * The EntityFramework package has historically been in the top 3 packages in NuGet.org. We will lose this because there will no longer be a single package that represents all versions of EF. On the up side, the most commonly accepted version of EF will show up higher in the list (i.e. EF7 will only show up above EF6 once it becomes more popular).
 * Our history doesn't follow this approach (i.e. there are no EntityFramework5.*, EntityFramework6.* packages). If we think there is value in having these then we can create these as meta packages and just have them pull in the appropriate version of the multi-major-version packages.
+* Libraries which use EF must match versions and release a different package per EF major release
