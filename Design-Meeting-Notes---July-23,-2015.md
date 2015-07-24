@@ -18,6 +18,20 @@ Here are some other, general notes we had.
 * Cross-reference related commands in help
 * For renamed commands, ensure errors are useful to early adopters
 
+It was also interesting to view the DNX sub-commands as a hierarchy.
+
+* migrations
+    * list
+    * add
+    * remove
+    * script
+* dbcontext
+    * list
+    * scaffold
+    * scaffold-templates
+* database
+    * update
+
 # Cross-platform coding guidelines
 We reviewed and discussed how to make the EF code more sensitive to Linux and OS X. The issues discussed have now been addressed in [Engineering Guidelines - Cross-platform coding](https://github.com/aspnet/Home/wiki/Engineering-guidelines#cross-platform-coding).
 
