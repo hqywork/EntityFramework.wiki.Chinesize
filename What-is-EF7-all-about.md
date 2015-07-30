@@ -12,11 +12,8 @@ The "elevator pitch" is easy, but what does that really mean. Here are a few blo
 * [EF7 - New Platforms, New Data Stores](http://blogs.msdn.com/b/adonet/archive/2014/05/19/ef7-new-platforms-new-data-stores.aspx)
 * [EF7 - What Does “Code First Only” Really Mean](http://blogs.msdn.com/b/adonet/archive/2014/10/21/ef7-what-does-code-first-only-really-mean.aspx)
 * [EF7 - v1 or v7?](http://blogs.msdn.com/b/adonet/archive/2014/10/27/ef7-v1-or-v7.aspx)
-* [EF7 - Priorities, Focus, and Initial Release](http://blogs.msdn.com/b/adonet/archive/2014/12/02/ef7-priorities-focus-and-initial-release.aspx)
 
 ## Trying it out
 
-The best way to try out EF7 is to make use of our nightly builds. You can find information on nightly builds, as well as some getting started examples, on our [Getting Started with EF7](http://ef.readthedocs.org/) page.
-
-As you try out EF7 please bear in mind that this is a very early stage in the development of the new EF codebase and there are many features that are partially implemented or not yet available.
+The best way to try out EF7 is to make use of one of our official pre-releases. You can find information on  getting started at [ef.readthedocs.org](http://ef.readthedocs.org/).
 
