@@ -16,8 +16,18 @@ enum QueryTrackingBehavior { Tracked, NoTracking } // default is Tracked
 
 # Reverse Engineering SQLite Column Types
 
-Content coming soon...
+SQLite allows arbitrary column types. This could add a large amount of complexity to reverse engineering. Instead, will do a simple mapping from column type to CLR types.
+We will use the same heuristic found in [Determination Of Column Affinity](https://www.sqlite.org/datatype3.html#affname) (but in reverse) to determine which CLR type. The heuristic is:
+```
+If the column type name
+1. Contains "INT" => long
+2. Contains "CHAR", "CLOB", or "TEXT" => string
+3. Contains "BLOB" => byte[]
+4. Contains "REAL", "FLOA", or "DOUB" => double
 
+Else
+ => string
+```
 # Discussion
 
 Please use the [discussion issue](https://github.com/aspnet/EntityFramework/issues/2791) to provide feedback, ask questions, etc.
