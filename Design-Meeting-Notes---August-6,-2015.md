@@ -9,7 +9,7 @@ We attempted to answer the question: "Is it still appropriate to track query res
 - We will add a new top level DbContext option that controls whether or not query results are tracked by default:
 
 ```
-enum QueryTrackingBehavior (Tracked, NoTracking) // default is Track
+enum QueryTrackingBehavior { Tracked, NoTracking } // default is Tracked
 ```
 
 - Accordingly we will add an AsTracked query operator to complement AsNoTracking.
