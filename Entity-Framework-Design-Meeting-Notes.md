@@ -2,6 +2,13 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [August 6, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---August-6,-2015)
+
+- [Default Query Tracking Behavior](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---August-6,-2015#default-query-tracking-behavior)
+- [Reverse Engineering SQLite Column Types](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---August-6,-2015#reverse-engineering-sqlite-column-types)
+
+Please use the design meeting [discussion issue](https://github.com/aspnet/EntityFramework/issues/2791) to provide feedback, ask questions, etc.
+
 ## [July 23, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---July-23,-2015)
 
 - [NuGet/DNX Commands](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---July-23,-2015#cross-platform-coding-guidelines)
