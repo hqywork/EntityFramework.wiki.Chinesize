@@ -38,8 +38,8 @@ The following features are already implemented and included in the last official
 		
 * Change Tracking
  * **Snapshot change tracking** based on recording the original values of an entity when it is retrieved from the database.
- * **Accessing tracked state** of entities (via DbContext.Entry and DbContext.ChangeTracker).
- * **Attaching detached entities/graphs**. The new DbContext.AttachGraph API helps re-attach entities to a context in order to save new/modified entities.
+ * **Accessing tracked state** of entities (via `DbContext.Entry` and `DbContext.ChangeTracker`).
+ * **Attaching detached entities/graphs**. The new `DbContext.AttachGraph` API helps re-attach entities to a context in order to save new/modified entities.
 		
 * SaveChanges
  * Basic save functionality
@@ -53,24 +53,25 @@ The following features are already implemented and included in the last official
  * Basic LINQ support
  * Mixed client/server evaluation
  * NoTracking
- * Eager loading (Include)
+ * Eager loading (`Include`)
  * Async query
- * Translation of BCL functions
+ * Translation of common BCL functions
  * Raw SQL queries (with composability)
-		
-* Database creation/deletion
-* Database Error Page
-* Migrations
- * NuGet (Package Manager Console) CLI
- * DNX CLI
- * SQL generation
- * Code generation
-* Providers
+
+* Database schema management 		
+ * Database creation/deletion APIs (mostly for testing)
+ * Database Error Page
+ * Relational database migrations 
+
+* Database providers
  * In-Memory
  * SQL Server
+ * SQLite
+
 * Platforms
- * net
- * dnx
+ * Full .NET
+ * ASP.NET 5
+ * Universal Windows Platform
 	
 ### In Progress
 
@@ -78,27 +79,26 @@ The following features are currently being implemented. Some scenarios may work,
 
 * TPH inheritance pattern
  * This has been implemented in parts of the stack, but still needs to be implemented in ModelBuilder, conventions, and migrations.
+
 * Cross-cutting quality
- * Docs (same model as ASP.NET 5) [Rowan]
- * IntelliSense docs [Rowan]
- * API Reviews [Rowan]
-* Inheritance mapping
- * ModelBuilder & Conventions [Andriy]
- * Migrations [Brice]
-* LINQ
- * Navigation properties
-* Reverse engineer from database [Lawrence]
-* Migrations [Brice]
- * Model Differ
-* Raw SQL commands [Micah]
-* Platforms [Brice]
- * Windows 10 UWP incl .NET Native (phone/store) [Brice]
- * Mac/Linux Support (Mono) [Nate]
+ * Docs (same model as ASP.NET 5)
+ * IntelliSense docs
+ * API Reviews
+
+* Query
+ * Navigation properties in LINQ
+
+* Reverse engineer from database
+
+
+* Platforms
+ * Mac/Linux Support
+
 * Data Stores
- * SQLite [Nate]
  * Postgres (delivered by npgsql)
  * SQL Compact (delivered by ErikEJ)
-* Data annotations [Smit]
+
+* Data annotations
 
 For RTM
 * Design time context discovery/loading
