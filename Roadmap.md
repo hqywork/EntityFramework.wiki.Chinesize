@@ -59,50 +59,48 @@ The following features are already implemented and included in the last official
  * **Raw SQL queries** provides the `DbSet.FromSql` method to use raw SQL queries to fetch data. These queries can also be composed on using LINQ.
 
 * Database schema management 		
- * Database creation/deletion APIs (mostly for testing)
- * Database Error Page
- * Relational database migrations 
+ * **Database creation/deletion APIs** are mostly designed for testing where you want to quickly create/delete the database without using migrations.
+ * **Database error page** is a piece of middleware for ASP.NET 5 that provides additional help for database related exceptions.
+ * **Relational database migrations** allow a relational database schema to evolve overtime as your model changes.
 
 * Database providers
- * In-Memory
- * SQL Server
- * SQLite
+ * **EntityFramework.SqlServer** connects to Microsoft SQL Server 2008 onwards.
+ * **EntityFramework.Sqlite** connects to a SQLite 3 database.
+ * **EntityFramework.InMemory** is designed to easily enable testing without connecting to a real database.
 
 * Platforms
- * Full .NET
- * ASP.NET 5
- * Universal Windows Platform
+ * **Full .NET** includes Console, WPF, WinForms, ASP.NET 4, etc.
+ * **ASP.NET 5** targeting both Full.NET and .NET Core.
+ * **Universal Windows Platform (UWP)** applications can make use of the SQLite provider to access local data
 	
 #### In Progress
 
 The following features are currently being implemented. Some scenarios may work, but there are significant limitations as the work is incomplete.
 
-* TPH inheritance pattern
- * This has been implemented in parts of the stack, but still needs to be implemented in ModelBuilder, conventions, and migrations.
+* Modeling
+ * **Data annotations** are attributes that can be added to your entity classes/properties and will influence the EF model (i.e. adding [Required] will let EF know that a property is required).
+ **TPH inheritance pattern** allows entities in an inheritance hierarchy to be saved to a single table using a discriminator column to identify they entity type for a given record in the database.
 
 * Cross-cutting quality
- * Docs (same model as ASP.NET 5)
- * IntelliSense docs
- * API Reviews
+ * **Documentation** is being developed in the [EntityFramework.Docs](https://github.com/aspnet/EntityFramework.Docs) repository.
+ * **IntelliSense documentation** allow contextual help within Visual Studio when using the EF APIs.
+ * **API reviews** involve us going over each API to ensure we have a clean and consistent API surface.
 
 * Performance
- * Add additional coverage
- * Improvements based on results
+ * **Additional coverage** is being added to our benchmark suite.
+ * **Performance improvements** to address the identified bottlenecks are ongoing.
 
 * Query
- * Navigation properties in LINQ
+ * **Navigation property translation** allows dotting thru navigation properties in LINQ (e.g. `Products.Where(p => p.Category.Name == "Food")`)
 
-* Reverse engineer from database
-
+* **Reverse engineer from database** scaffolds an EF model based on an existing relational database schema.
 
 * Platforms
- * Mac/Linux Support
+ * **Mac and Linux** currently work for EF7 but we are improving stability.
 
 * Data Stores
- * Postgres (delivered by npgsql)
- * SQL Compact (delivered by ErikEJ)
-
-* Data annotations
+ * **Postgres** support is being developed by [Npgsql](https://github.com/npgsql/npgsql)
+ * **SQL Compact** support is being developed by [ErikEJ](https://github.com/ErikEJ/EntityFramework7.SqlServerCompact)
 
 #### Scheduled for 7.0.0
 
