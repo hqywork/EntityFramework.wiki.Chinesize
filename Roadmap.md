@@ -106,10 +106,10 @@ The following features are currently being implemented. Some scenarios may work,
 
 The following features are on our list to be implemented prior to the 7.0.0 release, but are not currently being actively worked on.
 
-* Design time context discovery/loading
-* Deployment (blocked by Tooling)
-* Cascade delete (scoped)
-* Logging DNX min-bar
+* **Design time context discovery/loading** allows tooling (such as migrations) to correctly locate your context type and instantiate it to create the model and identify the database it connects to.
+* **Deployment** provides better support for deploying database changes as part of your general application deployment.
+* **Cascade delete** enables automatic deletion of child records when the parent is deleted.
+* **Logging** for the initial release will be simplistic and conform to the suggested guidelines for ASP.NET 5. We will improve our logging story in subsequent updates.
 
 ### Backlog Features
 
