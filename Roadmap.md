@@ -35,6 +35,7 @@ The following features are already implemented and included in the last official
  * **Built-in conventions** that build an initial model based on the shape of the entity classes.
  * **Model validation** that detects invalid patterns in the model and provides helpful error messages.
  * **Key value generation** including client-side generation and database generation.
+ * **Relational: Table mapping** allows entities to be mapped to tables/columns.
 		
 * Change Tracking
  * **Snapshot change tracking** based on recording the original values of an entity when it is retrieved from the database.
@@ -42,21 +43,20 @@ The following features are already implemented and included in the last official
  * **Attaching detached entities/graphs**. The new `DbContext.AttachGraph` API helps re-attach entities to a context in order to save new/modified entities.
 		
 * SaveChanges
- * Basic save functionality
- * Optimistic Concurrency
- * Async SaveChanges
- * Relational: Transactions
- * Relational: Table-based CUD
- * Relational: Batching of CUD statements
+ * **Basic save functionality** allows changes to entity instances to be persisted to the database.
+ * **Optimistic Concurrency** protects against overwriting changes made by another user since data was fetched from the database.
+ * **Async SaveChanges** can free up the current thread to process other requests while the database processes the commands issued from `SaveChanges`.
+ * **Relational: Transactions** means that `SaveChanges` is always atomic (meaning it either completely succeeds, or no changes are made to the database). There are also transaction related APIs to allow sharing transactions between context instances etc.
+ * **Relational: Batching of statements** provides better performance by batching up multiple INSERT/UPDATE/DELETE commands into a single roundtrip to the database.
 		
 * Query
- * Basic LINQ support
- * Mixed client/server evaluation
- * NoTracking
- * Eager loading (`Include`)
- * Async query
- * Translation of common BCL functions
- * Raw SQL queries (with composability)
+ * **Basic LINQ support** provides the ability to use LINQ to retrieve data from the database.
+ * **Mixed client/server evaluation** enables queries to contain logic that can not be evaluated in the database, and must therefore be evaluated after the data is retrieved into memory.
+ * **NoTracking** queries enables quicker query execution when the context does not need to monitor for changes to the entity instances (i.e. the results are read-only).
+ * **Eager loading** provides the `Include` and `ThenInclude` methods to identify related data that should also be fetched when querying.
+ * **Async query** can free up the current thread to process other requests while the database processes the query.
+ * **Translation of common BCL functions** enables these functions to be translated into database specific query language (i.e. SQL) when they are used in LINQ.
+ * **Raw SQL queries** provides the `DbSet.FromSql` method to use raw SQL queries to fetch data. These queries can also be composed on using LINQ.
 
 * Database schema management 		
  * Database creation/deletion APIs (mostly for testing)
