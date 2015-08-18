@@ -73,7 +73,7 @@ The following features are already implemented and included in the last official
  * ASP.NET 5
  * Universal Windows Platform
 	
-### In Progress
+#### In Progress
 
 The following features are currently being implemented. Some scenarios may work, but there are significant limitations as the work is incomplete.
 
@@ -84,6 +84,10 @@ The following features are currently being implemented. Some scenarios may work,
  * Docs (same model as ASP.NET 5)
  * IntelliSense docs
  * API Reviews
+
+* Performance
+ * Add additional coverage
+ * Improvements based on results
 
 * Query
  * Navigation properties in LINQ
@@ -100,14 +104,74 @@ The following features are currently being implemented. Some scenarios may work,
 
 * Data annotations
 
-For RTM
+#### Scheduled for 7.0.0
+
+The following features are on our list to be implemented prior to the 7.0.0 release, but are not currently being actively worked on.
+
 * Design time context discovery/loading
 * Deployment (blocked by Tooling)
-* Performance
- * Add additional coverage
- * Improvements based on results
 * Cascade delete (scoped)
 * Logging DNX min-bar
 
 ### Backlog Features
 
+#### Critical O/RM features
+
+The things we think we need before we say EF7 is the recommended version of EF. Until we implement these features EF7 will be a valid option for many applications, especially on platforms such as UWP where EF6.x does not work, but for many applications the lack of these features will make EF6.x a better option.
+
+* Query
+ * Explicit Loading
+ * Sub queries
+ * Group by translation to SQL
+
+* Logging
+ * Great logging story (polish/consistency etc.)
+* Logging++ (structured logging for Glimpse etc.)
+
+* Update model from database
+
+* Modelling
+ * Complex/value types
+
+* Change Tracking
+ * Missing APIs from EF6.x (`Reload`, `GetModifiedProperties`, etc.)
+ * Entry methods for relationships
+ * Entry methods for database values
+
+* Relational specific
+ * Sproc-based CUD
+ * Connection resiliency
+
+#### High priority features
+
+There are many features on our backlog and this is by no means an exhaustive list. These features are high priority but we think EF7 would be a compelling release for the vast majority of applications without them
+
+* Modelling
+ * Shadow state entities
+ * Mapping to methods, alternate property patterns, property bags, immutable objects, etc.
+ * Visualize a model
+ * Composable functions support  
+ * Custom conventions
+ * Entity/Table splitting
+ * Simple type conversions (i.e. string => xml)
+ * many:many relationships without join entity
+
+* Change Tracking
+ * Notification change tracking
+
+* CRUD
+ * Seed data
+ * Lazy loading (feedback based)
+ * Simple ETag-style concurrency token support 
+ * Eager loading improvements, e.g. rule-based, aggregate-based, filtered, for derived classes, etc.
+ * Simple interception mechanisms for query and updates
+
+* Providers
+ * ATS
+ * Redis
+ * Other non-relational databases
+
+* Migrations
+ * CLI (non-DNX projects)
+
+* Provider specified in config file
