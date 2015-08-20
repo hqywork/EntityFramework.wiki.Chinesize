@@ -79,7 +79,7 @@ The following features are currently being implemented. Some scenarios may work,
 
 * Modeling
  * **Data annotations** are attributes that can be added to your entity classes/properties and will influence the EF model (i.e. adding [Required] will let EF know that a property is required).
- **TPH inheritance pattern** allows entities in an inheritance hierarchy to be saved to a single table using a discriminator column to identify they entity type for a given record in the database.
+ * **TPH inheritance pattern** allows entities in an inheritance hierarchy to be saved to a single table using a discriminator column to identify they entity type for a given record in the database.
 
 * Cross-cutting quality
  * **Documentation** is being developed in the [EntityFramework.Docs](https://github.com/aspnet/EntityFramework.Docs) repository.
