@@ -2,6 +2,14 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [August 20, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes--August-20,-2015)
+
+- [Error handling in Data Annotations](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes--August-20,-2015#error-handling-in-data-annotations)
+- [Aligning property discovery with type mapping](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes--August-20,-2015#aligning-property-discovery-with-type-mapping)
+- [Relationship API naming](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes--August-20,-2015#relationship-api-naming)
+
+Please use the design meeting [discussion issue](https://github.com/aspnet/EntityFramework/issues/2899) to provide feedback, ask questions, etc.
+
 ## [August 6, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---August-6,-2015)
 
 - [Default Query Tracking Behavior](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---August-6,-2015#default-query-tracking-behavior)
