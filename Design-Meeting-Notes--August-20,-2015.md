@@ -51,7 +51,7 @@ modelBuilder.Entity<Post>()
     .HasForeignKey(p => p.BlogId);
 ```
 
-#### EF7 Curent
+#### EF7 Current
 ``` c#
 modelBuilder.Entity<Post>()
     .Reference(p => p.Blog) // Required/optional comes from nullability of FK
