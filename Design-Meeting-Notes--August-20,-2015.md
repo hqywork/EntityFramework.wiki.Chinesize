@@ -4,7 +4,12 @@
 
 # Aligning property discovery with type mapping
 
-(Content coming soon...)
+Presently `PropertyDiscoveryConvention` uses fixed set of clr types to identify primitive properties, irrespective of what is supported by the providers. This puts limitation on what clr types can be included in the model as primitive properties. It can also create a model with properties which cannot be mapped by the current provider. Ideally, supported primitive types should be dependent on the current provider. To enforce this, property discovery will be aligned TypeMapper.  
+
+Following will be the workflow:
+* `PropertyDiscoveryConvention` will pull all the properties from entity's clr type which can be mapped by the current provider as primitive properties.
+* The remaining properties, will be added as navigation properties if possible. This would also discover new entity types if applicable.
+* Once the model is fully built, if all the properties in entity's clr type are not added as primitive/navigation properties or marked as ignored by user (using `NotMapped` attribute or fluent API), then exception will be thrown providing information of the property which cannot be mapped by TypeMapper.
 
 # Relationship API naming
 
