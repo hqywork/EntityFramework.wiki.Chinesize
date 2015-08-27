@@ -2,6 +2,14 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [August 27, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-(August-27,-2015))
+
+- [Add/Attach for graphs](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-(August-27,-2015)#addattach-for-graphs)
+- [Relationship snapshot](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-(August-27,-2015)#relationship-snapshot)
+- [Cascade delete by convention](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-(August-27,-2015)#cascade-delete-by-convention)
+
+Please use the design meeting [discussion issue](https://github.com/aspnet/EntityFramework/issues/2946) to provide feedback, ask questions, etc.
+
 ## [August 20, 2015](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes--August-20,-2015)
 
 - [Error handling in Data Annotations](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes--August-20,-2015#error-handling-in-data-annotations)
@@ -129,4 +137,3 @@ Please use the design meeting [discussion issue](https://github.com/aspnet/Entit
 ## [May 29, 2014](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---May-29,-2014)
 
 - [Runtime database creation in EF7](https://github.com/aspnet/EntityFramework/wiki/Entity-Framework-Design-Meeting-Notes---May-29,-2014#runtime-database-creation-in-ef7)
-
