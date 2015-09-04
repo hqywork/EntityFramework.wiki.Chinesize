@@ -22,7 +22,7 @@ Below is the possible errors in data annotations and behavior of EF about them.
     - `ForeignKey` on both navigations don't match - 2 relationships will be formed with each navigation and respective foreign key property. If both navigations are connected by `InverseProperty` then throw.
     - Composite FK - Due to no column ordering, composite FK must be specified on navigation using `ForeignKey`. If `ForeignKey` on multiple properties then throw.
     - Invalid list of FK properties on navigation - throw.
-    - Navigation pointed by `ForeignKey` on property not found - throw.
+    - Navigation pointed by `ForeignKey` on property not found - will be implemented when logger is added.
     - Navigation pointed by `InverseProperty` not found or self or has different return type - throw.
     - `InverseProperty` on both navigations don't point to each other - throw.
 
