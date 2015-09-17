@@ -9,7 +9,7 @@ The schedule for the initial release of EF7 is guided by the [ASP.NET 5 schedule
 |Milestone|Release Date|
 |---------|------------|
 |Beta7    | 31 Aug 2015|
-|Beta8    | 21 Sep 2015|
+|Beta8    |  5 Oct 2015|
 |RC1      |    Nov 2015|
 |7.0.0    |     <span title="Calendar based">Q1<sup>*</sup></span> 2016|
 
