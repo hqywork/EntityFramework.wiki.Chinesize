@@ -15,8 +15,7 @@ At design-time, we'll use the following algorithm to load the runtime services.
 4. If none, look for `DbContext` elsewhere (see below)
 5. Get runtime services from the `DbContext`
 6. Add provider's design-time services (see below)
-7. If no `Startup` class was found in step 1, look in **project**
-8. Call `Startup.ConfigureDesignTimeServices` to add user's design-time services
+7. Call `Startup.ConfigureDesignTimeServices` to add user's design-time services
 
 For operations that don't require a `DbContext` (e.g. Reverse Engineering), the steps can be simplified as follow.
 
@@ -29,7 +28,7 @@ Here is the algorithm for finding and instantiating a `DbContext` that couldn't 
 
 1. Look in **startupProject** for an `IDbContextFactory<DbContext>`
 2. If none, Look in **project** for an `IDbContextFactory<DbContext>`
-3. If found, return `IDbContextFactory<DbContext>.Create`
+3. If found, return `IDbContextFactory<DbContext>.Create()`
 4. Look in **startupProject** for the `DbContext`
 5. If none, look in **project** for the `DbContext`
 6. If none, look in **project** for `Migration`s, look at their referenced `DbContext`
