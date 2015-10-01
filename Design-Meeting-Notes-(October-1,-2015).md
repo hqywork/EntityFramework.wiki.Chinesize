@@ -20,6 +20,10 @@ For SQLite there is no concept of schema so it will be:
 
 and any `-s` entries will be ignored.
 
+In PowerShell, we'll have `-Tables` and `-Schemas` which take an array of strings. For example:
+
+`-Schemas schema1 -Tables ('table1', 'table2')`
+
 # Command options naming
 
 We also reviewed a few options that have been added to the commands since [the last review](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes---July-23,-2015#nugetdnx-commands). Here are the notes.
