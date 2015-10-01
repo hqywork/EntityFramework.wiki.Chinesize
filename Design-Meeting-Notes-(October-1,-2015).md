@@ -11,6 +11,7 @@ Decided to move to `-t|--table` and `-s|--schema` where both `-t` and `-s` are a
 So e.g. for SqlServer it will be:
 
 `-s schema1 -s schema.with.dots ...`
+
 `-t schema1.table1 -t schema2.table2 -t [schema.with.dots].[table.with.dots] ...`
 
 For SQLite there is no concept of schema so it will be:
