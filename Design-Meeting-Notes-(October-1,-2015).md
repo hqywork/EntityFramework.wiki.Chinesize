@@ -6,7 +6,7 @@ Right now we have the syntax
 
 where `<filters>` looks like `*:table,schema:*,schema1:table1...`
 
-Decided to move to `-t|--table` and `-s|--schema` where both `-t` and `-s` are allowed multiple times. `-s` will represent what was previous `schema:*`, `-t` will be some combination of `schema_name` and `table_name` uniquely identifying a specific table. The list will be just sent to each provider as is and it will be up to the provider to interpret the syntax.
+Decided to move to `-t|--table` and `-s|--schema` where both `-t` and `-s` are allowed multiple times. `-s` will represent what was previously `schema:*`, `-t` will be some combination of `schema_name` and `table_name` uniquely identifying a specific table. The list will be just sent to each provider as is and it will be up to the provider to interpret the syntax.
 
 So e.g. for SqlServer it will be:
 
