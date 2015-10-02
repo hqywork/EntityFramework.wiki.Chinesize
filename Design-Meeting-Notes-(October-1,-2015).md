@@ -20,7 +20,7 @@ For SQLite there is no concept of schema so it will be:
 
 and any `-s` entries will be ignored.
 
-In PowerShell, we'll have `-Tables` and `-Schemas` which take an array of strings. For example:
+But note that in PowerShell, we'll have `-Tables` and `-Schemas` which take an array of strings. For example:
 
 `-Schemas schema1 -Tables ('table1', 'table2')`
 
