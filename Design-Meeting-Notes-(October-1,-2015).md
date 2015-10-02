@@ -37,6 +37,8 @@ NuGet | DNX
 **-Schemas** | **-s, --schema** *(multi-value option)*
 -StartupProject | -~~s~~**p**, --startupProject
 
+Note: with the -FluentApi becoming -DataAnnotations, using DataAnnotation attributes will become opt-in rather than opt-out that I has been up to now. I.e. by default we will now produce code using the fluent API if you don't specify otherwise. 
+
 # Discussion
 
 Please use the [discussion issue](https://github.com/aspnet/EntityFramework/issues/3297) to provide feedback, ask questions, etc.
