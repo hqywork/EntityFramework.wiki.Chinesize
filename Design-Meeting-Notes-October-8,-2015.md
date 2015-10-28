@@ -3,7 +3,7 @@ Provider API for Reverse Engineering
 
 For the RC1 release, we will attempt to define an API for provider-writers that will enable them to use reverse engineering against their datastore. Provider writers can choose to implement this API at one of two levels.
 
-1. Provider writers can implement an interface responsible for returning an `IModel`. This should represent completely the entities, properties, and navigation properties to be passed into code generation.
+1. Provider writers can implement an interface responsible for returning an `IModel`. This should represent completely the entities, properties, and foreign keys to be passed into code generation.
 2. Providers can use an abstract class provided in the framework which will take a simple domain model about database schema and build the `IModel` for the provider.
 
 The exact names of these interfaces have not yet been decided, but they will be put into the `Microsoft.Data.Entity.Scaffolding` namespace before RC1. 
