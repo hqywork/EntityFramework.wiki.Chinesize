@@ -1,11 +1,7 @@
 ## Prerequisites
 In order to work with the code base, you'll first need to install the following.
 
-* **Visual Studio 2015** - Install the latest [pre-release of Visual Studio 2015](https://www.visualstudio.com/downloads/visual-studio-2015-ctp-vs)
-* **DNX Version Manager** - Run the following command from an administrator command prompt.
-```Batchfile
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-```
+* **Visual Studio 2015**
 
 ## Clone the repository
 Using your favorite [git](http://git-scm.com/) client, clone the repository.
