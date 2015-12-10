@@ -28,7 +28,7 @@ You should be able to open the solution in Visual Studio now.
 
 ### Run tests
 
-Our tests are written using [xUnit.net 2.0](https://github.com/xunit/xunit), and can be run using your favorite runner. We recommend either the built-in Visual Studio test runner or [TestDriven.Net](http://www.testdriven.net/).
+Our tests are written using [xUnit.net 2.0](https://github.com/xunit/xunit), and can be run [TestDriven.Net](http://www.testdriven.net/). Given the rapid iteration of the pre-release platform we are building on top of, we do not ensure that other test runners work. Once things stabilize, we will support other test runners. 
 
 ## Build from Command Prompt
 You can also build and run tests from Command Prompt using the following.
