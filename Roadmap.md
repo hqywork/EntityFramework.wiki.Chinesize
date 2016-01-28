@@ -89,7 +89,7 @@ The following features are currently being implemented. Some scenarios may work,
 * **Reverse engineer from database** scaffolds an EF model based on an existing relational database schema.
 
 * Platforms
- * **Mac and Linux** currently work for EF7 but we are improving stability.
+ * **Mac and Linux** currently work for EF Core but we are improving stability.
 
 * Data Stores
  * **Postgres** support is being developed by [Npgsql](https://github.com/npgsql/npgsql)
