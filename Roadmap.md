@@ -1,27 +1,20 @@
-# Entity Framework 7 (EF7)
+# Entity Framework Core (EF Core)
 
-Below is the schedule and roadmap for EF7. Please note that these dates and feature plans are all subject to change. As with any project of this size it is difficult to predict exactly when things will land. Even so, we think it's important to be as open and transparent as possible about our plans so that our users can have the right expectations and create their plans accordingly.
+Below is the schedule and roadmap for EF Core. Please note that these dates and feature plans are all subject to change. As with any project of this size it is difficult to predict exactly when things will land. Even so, we think it's important to be as open and transparent as possible about our plans so that our users can have the right expectations and create their plans accordingly.
 
 ## Schedule
 
-The schedule for the initial release of EF7 is guided by the [ASP.NET 5 schedule](https://github.com/aspnet/Home/wiki/Roadmap). While EF7 is not strictly tied to ASP.NET 5 (and has many use cases outside of ASP.NET), it is an integral part of ASP.NET 5 and it is therefore important that we have a stable release of EF7 to support the ASP.NET 5 release.
+The schedule for the initial release of EF Core is in-sync with the ASP.NET Core schedule [which you can find here](https://github.com/aspnet/Home/wiki/Roadmap). 
 
-|Milestone|Release Date|
-|---------|------------|
-|Beta7    | 31 Aug 2015|
-|Beta8    |  5 Oct 2015|
-|RC1      |    Nov 2015|
-|7.0.0    |     <span title="Calendar based">Q1<sup>*</sup></span> 2016|
-
-The November release candidate (RC1) will be a supported and production ready cross-platform release. Depending on feedback from RC1 we will ship additional release candidates as necessary.
+While EF Core is not strictly tied to ASP.NET Core (and has many use cases outside of ASP.NET), it is an integral part of ASP.NET Core and it is therefore important that we have a stable release of EF Core to support the ASP.NET Core release.
 
 ## Features
 
-Because EF7 is a new code base, the presence of a feature in past releases does not mean that the feature is implemented in EF7. For this reason, we have provided a list of what is implemented and what we plan to implement before the initial release of EF7. 
+Because EF Core is a new code base, the presence of a feature in past releases does not mean that the feature is implemented in EF Core. For this reason, we have provided a list of what is implemented and what we plan to implement before the initial release of EF Core. 
 
-We have also provided a list of features that we think are important but will not be enabled in the initial release. This means that EF6.x continues to be the best version of EF for a number of applications until these features are implemented in the EF7 code base.
+We have also provided a list of features that we think are important but will not be enabled in the initial release. This means that EF6.x continues to be the best version of EF for a number of applications until these features are implemented in the EF Core code base.
 
-### 7.0.0 Features
+### Core 1.0.0 Features
 
 #### Implemented
 
@@ -102,9 +95,9 @@ The following features are currently being implemented. Some scenarios may work,
  * **Postgres** support is being developed by [Npgsql](https://github.com/npgsql/npgsql)
  * **SQL Compact** support is being developed by [ErikEJ](https://github.com/ErikEJ/EntityFramework7.SqlServerCompact)
 
-#### Scheduled for 7.0.0
+#### Scheduled for 1.0.0
 
-The following features are on our list to be implemented prior to the 7.0.0 release, but are not currently being actively worked on.
+The following features are on our list to be implemented prior to the 1.0.0 release, but are not currently being actively worked on.
 
 * **Design time context discovery/loading** allows tooling (such as migrations) to correctly locate your context type and instantiate it to create the model and identify the database it connects to.
 * **Deployment** provides better support for deploying database changes as part of your general application deployment.
@@ -115,7 +108,7 @@ The following features are on our list to be implemented prior to the 7.0.0 rele
 
 #### Critical O/RM features
 
-The things we think we need before we say EF7 is the recommended version of EF. Until we implement these features EF7 will be a valid option for many applications, especially on platforms such as UWP where EF6.x does not work, but for many applications the lack of these features will make EF6.x a better option.
+The things we think we need before we say EF Core is the recommended version of EF. Until we implement these features EF Core will be a valid option for many applications, especially on platforms such as UWP where EF6.x does not work, but for many applications the lack of these features will make EF6.x a better option.
 
 * Query
  * Explicit Loading
@@ -142,7 +135,7 @@ The things we think we need before we say EF7 is the recommended version of EF. 
 
 #### High priority features
 
-There are many features on our backlog and this is by no means an exhaustive list. These features are high priority but we think EF7 would be a compelling release for the vast majority of applications without them
+There are many features on our backlog and this is by no means an exhaustive list. These features are high priority but we think EF Core would be a compelling release for the vast majority of applications without them
 
 * Modelling
  * Shadow state entities
