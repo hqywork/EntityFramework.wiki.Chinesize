@@ -21,9 +21,9 @@ We have also provided a list of features that we think are important but will no
 The following features are already implemented and included in the last official pre-release. Note that features on this list may still have bugs that need to be resolved and the APIs/design may still change as we progress toward the first stable release.
 
 * Modelling
- * **Basic modelling** based on POCO entities with get/set properties. The common property types from the BCL are supported (int, string, etc.).
+ * **Basic modelling** based on POCO entities with get/set properties. The common property types from the BCL are supported (`int`, `string`, etc.).
  * **Built-in conventions** that build an initial model based on the shape of the entity classes.
- * **Fluent API** allows you to override the OnModelCreating method on your context to further configure the model that was discovered by convention.
+ * **Fluent API** allows you to override the `OnModelCreating` method on your context to further configure the model that was discovered by convention.
  * **Data annotations** are attributes that can be added to your entity classes/properties and will influence the EF model (i.e. adding [Required] will let EF know that a property is required).
  * **TPH inheritance pattern** allows entities in an inheritance hierarchy to be saved to a single table using a discriminator column to identify they entity type for a given record in the database.
  * **Relationships** between entities based on navigation and foreign key properties.
@@ -48,7 +48,7 @@ The following features are already implemented and included in the last official
 		
 * Query
  * **Basic LINQ support** provides the ability to use LINQ to retrieve data from the database.
- * **Mixed client/server evaluation** enables queries to contain logic that can not be evaluated in the database, and must therefore be evaluated after the data is retrieved into memory.
+ * **Mixed client/server evaluation** enables queries to contain logic that cannot be evaluated in the database, and must therefore be evaluated after the data is retrieved into memory.
  * **NoTracking** queries enables quicker query execution when the context does not need to monitor for changes to the entity instances (i.e. the results are read-only).
  * **Eager loading** provides the `Include` and `ThenInclude` methods to identify related data that should also be fetched when querying.
  * **Async query** can free up the current thread to process other requests while the database processes the query.
@@ -91,7 +91,7 @@ The things we think we need before we say EF Core is the recommended version of 
 
 * Query
  * **Improved translation** will enable more queries to successfully execute, with more logic being evaluated in the database (rather than in-memory).
-  * **GroupBy translation** will move transaltion of the LINQ GroupBy operator to the database, rather than in-memory.
+  * **GroupBy translation** will move translation of the LINQ GroupBy operator to the database, rather than in-memory.
  * **Lazy loading** enables navigation properties to be automatically populated from the database when they are accessed.
  * **Explicit Loading** allows you to trigger population of a navigation property on an entity that was previously loaded from the database.
 
@@ -120,7 +120,7 @@ There are many features on our backlog and this is by no means an exhaustive lis
  * **Alternate inheritance mapping patterns** for relational databases, such as table per type (TPT) and table per concrete type TPC.
 
 * CRUD
- * **Seed data** allows a set of data to be easliy upserted.
+ * **Seed data** allows a set of data to be easily upserted.
  * **ETag-style concurrency token support** 
  * **Eager loading rules** allow a default set of related data to always be retrieved when an entity is queried.
  * **Filtered loading** allows a subset of related entities to be loaded.
