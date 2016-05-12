@@ -12,7 +12,7 @@ While EF Core is not strictly tied to ASP.NET Core (and has many use cases outsi
 
 Because EF Core is a new code base, the presence of a feature in past releases does not mean that the feature is implemented in EF Core. For this reason, we have provided a list of what is implemented and what we plan to implement before the initial release of EF Core. 
 
-We have also provided a list of features that we think are important but will not be enabled in the initial release. This means that EF6.x continues to be the best version of EF for a number of applications until these features are implemented in the EF Core code base.
+**We have also provided a list of features that we think are important but will not be enabled in the initial release. This means that EF6.x continues to be the best version of EF for a number of applications until these features are implemented in the EF Core code base.**
 
 ### Core 1.0.0 Features
 
