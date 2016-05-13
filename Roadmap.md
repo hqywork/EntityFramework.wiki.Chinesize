@@ -28,7 +28,7 @@ The following features are already implemented and included in the last official
  * **TPH inheritance pattern** allows entities in an inheritance hierarchy to be saved to a single table using a discriminator column to identify they entity type for a given record in the database.
  * **Relationships** between entities based on navigation and foreign key properties.
  * **Shadow state properties** (properties that are part of the model but do not have a corresponding property in the CLR class).
- * **Unique constraints and indexes** (and the ability to define a relationship that targets a unique constraint that is not the primary key).
+ * **Alternate keys** and the ability to define a relationship that targets an alternate key.
  * **Model validation** that detects invalid patterns in the model and provides helpful error messages.
  * **Key value generation** including client-side generation and database generation.
  * **Relational: Table mapping** allows entities to be mapped to tables/columns.
