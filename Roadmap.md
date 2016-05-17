@@ -106,6 +106,7 @@ The things we think we need before we say EF Core is the recommended version of 
 
 * Relational specific
  * **Stored procedure mapping** allows EF to use stored procedures to persist changes to the database (`FromSql` already provides good support for using a stored procedure to query).
+ * **View mapping** allows EF to map to database views.
  * **Connection resiliency** automatically retries failed database commands. This is especially useful when connection to SQL Azure, where transient failures are common.
  
 #### High priority features
