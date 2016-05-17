@@ -116,6 +116,7 @@ There are many features on our backlog and this is by no means an exhaustive lis
  * **More flexible property mapping**, such as constructor parameters, get/set methods, property bags, etc.
  * **Visualizing a model** to see a graphical representation of the code-based model.
  * **Simple type conversions** such as string => xml.
+ * **Spatial data types** such as SQL Server's `geography` & `geometry`.
  * **Many-to-many relationships** without join entity. You can already [model a many-to-many relationship with a join entity](https://docs.efproject.net/en/latest/modeling/relationships.html#many-to-many).
  * **Alternate inheritance mapping patterns** for relational databases, such as table per type (TPT) and table per concrete type TPC.
 
