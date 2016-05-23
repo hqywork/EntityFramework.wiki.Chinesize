@@ -94,6 +94,7 @@ The things we think we need before we say EF Core is the recommended version of 
   * **GroupBy translation** will move translation of the LINQ GroupBy operator to the database, rather than in-memory.
  * **Lazy loading** enables navigation properties to be automatically populated from the database when they are accessed.
  * **Explicit Loading** allows you to trigger population of a navigation property on an entity that was previously loaded from the database.
+ * **Raw SQL queries for non-Model types** allows a raw SQL query to be used to populate types that are not part of the model (typically for denormalized view-model data).
 
 * Database schema management 
  * **Update model from database** allows a model that was previously reverse engineered from the database to be refreshed with changes made to the schema.
