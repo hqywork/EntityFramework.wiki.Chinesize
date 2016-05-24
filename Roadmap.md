@@ -97,6 +97,7 @@ The things we think we need before we say EF Core is the recommended version of 
  * **Raw SQL queries for non-Model types** allows a raw SQL query to be used to populate types that are not part of the model (typically for denormalized view-model data).
 
 * Database schema management 
+ * **Visual Studio wizard for reverse engineer**, that allows you to visually configure connection, select tables, etc. when creating a model from an existing database.
  * **Update model from database** allows a model that was previously reverse engineered from the database to be refreshed with changes made to the schema.
 
 * Modelling
