@@ -22,7 +22,7 @@ Microsoft.EntityFrameworkCore.Tools.Cli
 # How command execution currently works
 
 
-## .NET Core CLI on netcoreapp1.0 execution
+## .NET Core CLI on .NET Core projects
 
 ```
 > dotnet ef $ARGS
@@ -53,7 +53,7 @@ Because "Microsoft.EntityFrameworkCore.Tools.Cli" comes from dependencies,
 is found in `$appname.deps.json` when the app runs.
 
 
-## .NET Core CLI on net451 execution
+## .NET Core CLI on desktop .NET projects
 ```
 > dotnet ef $ARGS
   └─ dotnet.exe \
@@ -79,7 +79,7 @@ If dependency conflicts exist, `dotnet-build` also drops a file
  in the build output folder.
 
 
-## PowerShell cmdlets on csproj execution
+## PowerShell cmdlets on csproj
 ```
 PS > Add-Migration *
      └─ EntityFrameworkCore.psm1
@@ -103,7 +103,7 @@ NuGet `Install-Package` resolves dependencies of "Microsoft.EntityFrameworkCore.
 and the app. The resolution is automatically put into csproj and results in an output
 directory and `App.Config` that handles binding redirects.
 
-## PowerShell cmdlets on xproj execution
+## PowerShell cmdlets on xproj
 ```
 PS > Add-Migration $ARGS
      └─ EntityFrameworkCore.psm1
