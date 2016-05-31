@@ -1,5 +1,4 @@
-Package structure
------------------
+# Package structure
 
 ```
 Microsoft.EntityFrameworkCore.Tools
@@ -20,8 +19,8 @@ Microsoft.EntityFrameworkCore.Tools.Cli
 
 ```
 
-How command execution currently works
--------------------------------------
+# How command execution currently works
+
 
 ## .NET Core CLI on netcoreapp1.0 execution
 
