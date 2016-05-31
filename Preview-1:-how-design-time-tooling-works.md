@@ -53,7 +53,7 @@ Because "Microsoft.EntityFrameworkCore.Tools.Cli" comes from dependencies,
 is found in `$appname.deps.json` when the app runs.
 
 
-## .NET Core CLI on desktop .NET projects
+## .NET Core CLI on .NET Framework projects
 ```
 > dotnet ef $ARGS
   └─ dotnet.exe \
