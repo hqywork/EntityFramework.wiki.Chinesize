@@ -81,7 +81,7 @@ If dependency conflicts exist, `dotnet-build` also drops a file
 
 ## PowerShell cmdlets on csproj
 ```
-PS > Add-Migration *
+PS > Add-Migration $ARGS
      └─ EntityFrameworkCore.psm1
         |
         |  (Gather project model info)
@@ -115,3 +115,9 @@ PS > Add-Migration $ARGS
         └─ (Parse JSON results and trigger VS window opens)
 ```
 This is a shim into "dotnet ef".
+
+# Limitations
+
+1. Creating an app-domain for executing commands in the PowerShell host requires some remoting magic not available on .NET Core.
+2. Running "dotnet exec" on class library projects does not work because there is no "runtimeconfig.json" available.
+3. PowerShell command lets use project file extension (csproj/xproj) to determine execution approach. This will not be relient to project file changes.
