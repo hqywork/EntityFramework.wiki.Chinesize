@@ -27,6 +27,7 @@ You should be able to open the solution in Visual Studio now.
 1. Check that <https://myget.org/gallery/aspnetcidev> and <https://nuget.org> are accessible.
 2. Clean the source directory. `git clean -xid` will clean files in the EF source directory. 
 3. Clear nuget packages and caches. `nuget.exe locals -clear all` will delete the NuGet caches. (You can get nuget.exe from <https://dist.nuget.org/index.html>).
+4. Reinstall .NET Core CLI. Our build script automatically installs a version to `%LOCALAPPDATA%\Microsoft\dotnet`.
 
 ### Run tests
 
