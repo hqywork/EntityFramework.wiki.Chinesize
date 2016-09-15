@@ -6,6 +6,8 @@ The Entity Framework team has a weekly design meeting in which we discuss/recap 
 
 - [New (and improved) Migrations operations](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-(September-15,-2016)#new-and-improved-migrations-operations)
 
+Please use [the discussion issue](https://github.com/aspnet/EntityFramework/issues/6547) to provide feedback, ask questions, etc.
+
 ## [January 14, 2016](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-January-14,-2016)
 
 - [EF, UWP, and .NET Native](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-January-14,-2016#uwp-ef-and-net-native)
