@@ -2,6 +2,10 @@
 
 The Entity Framework team has a weekly design meeting in which we discuss/recap design and other issues with the codebase. These are the notes from those meetings. The intention is to provide a history of what decisions have been made and why. No attempt is made to go back and update notes from older meetings if we later change a decision and decide to do something different.
 
+## [September 15, 2016](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-(September-15,-2016))
+
+- [New (and improved) Migrations operations](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-(September-15,-2016)#new-and-improved-migrations-operations)
+
 ## [January 14, 2016](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-January-14,-2016)
 
 - [EF, UWP, and .NET Native](https://github.com/aspnet/EntityFramework/wiki/Design-Meeting-Notes-January-14,-2016#uwp-ef-and-net-native)
