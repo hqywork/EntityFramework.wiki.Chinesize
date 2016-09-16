@@ -46,7 +46,7 @@ migrationsBuilder.AlterDatabase()
     .CreatePostgresExtension("PostGIS");
     
 migrationsBuilder.AlterDatabase()
-    .Annotation("Npgsql:.PostGIS", "'PostGIS', '', ''");
+    .Annotation("Npgsql:PostgresExtension:.PostGIS", "'PostGIS', '', ''");
 ```
 
 If the provider can't generate code for the current language, the seccond, more general syntax could be handled by the
