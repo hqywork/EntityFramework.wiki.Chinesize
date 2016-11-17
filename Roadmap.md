@@ -10,7 +10,7 @@ The schedule for EF Core is in-sync with the .NET Core and ASP.NET Core schedule
 
 Because EF Core is a new code base, the presence of a feature in Entity Framework 6.x does not mean that the feature is implemented in EF Core. For more information, see [Compare EF Core & EF6.x](https://docs.microsoft.com/en-us/ef/efcore-and-ef6/index)
 
-We have provided a list of features that we think are important but are not yet implemented will not be enabled in the initial release. This is by no means an exhaustive list, but calls out some of the important features that are not yet implemented in EF Core.
+We have provided a list of features that we think are important but are not yet implemented. This is by no means an exhaustive list, but calls out some of the important features that are not yet implemented in EF Core.
 
 ### Critical O/RM features
 
