@@ -28,9 +28,6 @@ The things we think we need before we say EF Core is the recommended version of 
 
 * Modelling
  * **Complex/value types** are types that do not have a primary key and are used to represent a set of properties on an entity type.
-
-* Change Tracking
-* Relational specific
  * **Stored procedure mapping** allows EF to use stored procedures to persist changes to the database (`FromSql` already provides good support for using a stored procedure to query).
  * **View mapping** allows EF to map to database views.
  
