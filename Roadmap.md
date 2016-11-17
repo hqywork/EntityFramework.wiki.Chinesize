@@ -4,21 +4,83 @@ Below is the schedule and roadmap for EF Core. Please note that these dates and 
 
 ## Schedule
 
-The schedule for the initial release of EF Core is in-sync with the ASP.NET Core schedule [which you can find here](https://github.com/aspnet/Home/wiki/Roadmap). 
+The schedule for EF Core is in-sync with the .NET Core and ASP.NET Core schedule [which you can find here](https://github.com/aspnet/Home/wiki/Roadmap). 
 
-While EF Core is not strictly tied to ASP.NET Core (and has many use cases outside of ASP.NET), it is an integral part of ASP.NET Core and it is therefore important that we have a stable release of EF Core to support the ASP.NET Core release.
+## Backlog
 
-## Features
+Because EF Core is a new code base, the presence of a feature in Entity Framework 6.x does not mean that the feature is implemented in EF Core. For more information, see [Compare EF Core & EF6.x](https://docs.microsoft.com/en-us/ef/efcore-and-ef6/index)
 
-Because EF Core is a new code base, the presence of a feature in past releases does not mean that the feature is implemented in EF Core. For this reason, we have provided a list of what is implemented and what we plan to implement before the initial release of EF Core. 
+We have provided a list of features that we think are important but are not yet implemented will not be enabled in the initial release. This is by no means an exhaustive list, but calls out some of the important features that are not yet implemented in EF Core.
 
-**We have also provided a list of features that we think are important but will not be enabled in the initial release. This means that EF6.x continues to be the best version of EF for a number of applications until these features are implemented in the EF Core code base.**
+### Critical O/RM features
 
-### Core 1.0.0 Features
+The things we think we need before we say EF Core is the recommended version of EF. Until we implement these features EF Core will be a valid option for many applications, especially on platforms such as UWP and .NET Core where EF6.x does not work, but for many applications the lack of these features will make EF6.x a better option.
 
-#### Implemented
+* Query
+ * **Improved translation** will enable more queries to successfully execute, with more logic being evaluated in the database (rather than in-memory).
+  * **GroupBy translation** will move translation of the LINQ GroupBy operator to the database, rather than in-memory.
+ * **Lazy loading** enables navigation properties to be automatically populated from the database when they are accessed.
+ * **Raw SQL queries for non-Model types** allows a raw SQL query to be used to populate types that are not part of the model (typically for denormalized view-model data).
 
-The following features are already implemented and included in the last official pre-release. Note that features on this list may still have bugs that need to be resolved and the APIs/design may still change as we progress toward the first stable release.
+* Database schema management 
+ * **Visual Studio wizard for reverse engineer**, that allows you to visually configure connection, select tables, etc. when creating a model from an existing database.
+ * **Update model from database** allows a model that was previously reverse engineered from the database to be refreshed with changes made to the schema.
+
+* Modelling
+ * **Complex/value types** are types that do not have a primary key and are used to represent a set of properties on an entity type.
+
+* Change Tracking
+* Relational specific
+ * **Stored procedure mapping** allows EF to use stored procedures to persist changes to the database (`FromSql` already provides good support for using a stored procedure to query).
+ * **View mapping** allows EF to map to database views.
+ 
+### High priority features
+
+There are many features on our backlog and this is by no means an exhaustive list. These features are high priority but we think EF Core would be a compelling release for the vast majority of applications without them
+
+* Modelling
+ * **More flexible property mapping**, such as constructor parameters, get/set methods, property bags, etc.
+ * **Visualizing a model** to see a graphical representation of the code-based model.
+ * **Simple type conversions** such as string => xml.
+ * **Spatial data types** such as SQL Server's `geography` & `geometry`.
+ * **Many-to-many relationships** without join entity. You can already [model a many-to-many relationship with a join entity](https://docs.efproject.net/en/latest/modeling/relationships.html#many-to-many).
+ * **Alternate inheritance mapping patterns** for relational databases, such as table per type (TPT) and table per concrete type TPC.
+
+* CRUD
+ * **Seed data** allows a set of data to be easily upserted.
+ * **ETag-style concurrency token support** 
+ * **Eager loading rules** allow a default set of related data to always be retrieved when an entity is queried.
+ * **Filtered loading** allows a subset of related entities to be loaded.
+ * **Simple command interception** provides an easy way to read/write commands before/after they are sent to the database.
+
+* Providers
+ * **Azure Table Storage**
+ * **Redis**
+ * **Other non-relational databases**
+
+* Platforms
+ * **Universal Windows Platform (UWP)** currently works for local development but there are issues with the .NET Native tool chain that the EF and .NET Native teams are working to address.
+ * **Xamarin** works in some scenarios but has not been fully tested as a supported scenario.
+
+## EF Core 1.2
+
+EF Core 1.2 is currently in the planning phase.
+
+## EF Core 1.1 (Released)
+
+The following features are already implemented and included in the 1.1 release.
+
+* **Explicit Loading** allows you to trigger population of a navigation property on an entity that was previously loaded from the database.
+* **DbSet.Find** provides an easy way to fetch an entity based on its primary key value.
+* **Connection resiliency** automatically retries failed database commands. This is especially useful when connection to SQL Azure, where transient failures are common.
+* **EntityEntry APIs from EF6.x** such as `Reload`, `GetModifiedProperties`, `GetDatabaseValues` etc.
+* **Field mapping** allows you to configure a backing field for a property. This can be useful for read-only properties, or data that has Get/Set methods rather than a property.
+* **Memory-Optimized Tables** are a feature of SQL Server. You can specify that the table an entity is mapped to is memory-optimized. When using EF Core to create and maintain a database based on your model (either with migrations or `Database.EnsureCreated()`), a memory-optimized table will be created for these entities. 
+* **Simplified service replacement** makes it easier to replace internal services that EF uses.
+
+## EF Core 1.0 (Released)
+
+The following features are already implemented and included in the 1.0 release.
 
 * Modelling
  * **Basic modelling** based on POCO entities with get/set properties. The common property types from the BCL are supported (`int`, `string`, etc.).
@@ -63,74 +125,9 @@ The following features are already implemented and included in the last official
  * **EntityFramework.SqlServer** connects to Microsoft SQL Server 2008 onwards.
  * **EntityFramework.Sqlite** connects to a SQLite 3 database.
  * **EntityFramework.InMemory** is designed to easily enable testing without connecting to a real database.
- * **Postgres** support is being developed by [Npgsql](https://github.com/npgsql/npgsql)
- * **SQL Compact** support is being developed by [ErikEJ](https://github.com/ErikEJ/EntityFramework7.SqlServerCompact)
+ * **3rd party providers** are available for other database engines. See [Database Providers](https://docs.microsoft.com/en-us/ef/core/providers/) for a complete list.
 
 * Platforms
  * **Full .NET** includes Console, WPF, WinForms, ASP.NET 4, etc.
  * **.NET Core (including ASP.NET Core)** targeting both Full.NET and .NET Core on Windows, OSX, and Linux.
- * **Universal Windows Platform (UWP)** applications can make use of the SQLite provider to access local data
-	
-#### In Progress
 
-As we wrap up the 1.0.0 release, we are focused on the following areas:
- * **Bug fixing** to improvement the overall quality and reliability.
- * **LINQ provider improvements** to increase the number of LINQ queries that can successfully execute, and increase the parts of the query that can be translated to execute in the database.
- * **Performance improvements** to address the identified bottlenecks.
- * **Documentation** is being developed in the [EntityFramework.Docs](https://github.com/aspnet/EntityFramework.Docs) repository.
- * **IntelliSense documentation** allow contextual help within Visual Studio when using the EF APIs.
- 
-
-### Backlog Features
-
-This is by no means an exhaustive list, but calls out some of the important features that are not yet implemented in EF Core.
-
-#### Critical O/RM features
-
-The things we think we need before we say EF Core is the recommended version of EF. Until we implement these features EF Core will be a valid option for many applications, especially on platforms such as UWP and .NET Core where EF6.x does not work, but for many applications the lack of these features will make EF6.x a better option.
-
-* Query
- * **Improved translation** will enable more queries to successfully execute, with more logic being evaluated in the database (rather than in-memory).
-  * **GroupBy translation** will move translation of the LINQ GroupBy operator to the database, rather than in-memory.
- * **Lazy loading** enables navigation properties to be automatically populated from the database when they are accessed.
- * **Explicit Loading** allows you to trigger population of a navigation property on an entity that was previously loaded from the database.
- * **Raw SQL queries for non-Model types** allows a raw SQL query to be used to populate types that are not part of the model (typically for denormalized view-model data).
-
-* Database schema management 
- * **Visual Studio wizard for reverse engineer**, that allows you to visually configure connection, select tables, etc. when creating a model from an existing database.
- * **Update model from database** allows a model that was previously reverse engineered from the database to be refreshed with changes made to the schema.
-
-* Modelling
- * **Complex/value types** are types that do not have a primary key and are used to represent a set of properties on an entity type.
-
-* Change Tracking
- * **Missing EntityEntry APIs from EF6.x** such as `Reload`, `GetModifiedProperties`, `GetDatabaseValues` etc.
-
-* Relational specific
- * **Stored procedure mapping** allows EF to use stored procedures to persist changes to the database (`FromSql` already provides good support for using a stored procedure to query).
- * **View mapping** allows EF to map to database views.
- * **Connection resiliency** automatically retries failed database commands. This is especially useful when connection to SQL Azure, where transient failures are common.
- 
-#### High priority features
-
-There are many features on our backlog and this is by no means an exhaustive list. These features are high priority but we think EF Core would be a compelling release for the vast majority of applications without them
-
-* Modelling
- * **More flexible property mapping**, such as constructor parameters, get/set methods, property bags, etc.
- * **Visualizing a model** to see a graphical representation of the code-based model.
- * **Simple type conversions** such as string => xml.
- * **Spatial data types** such as SQL Server's `geography` & `geometry`.
- * **Many-to-many relationships** without join entity. You can already [model a many-to-many relationship with a join entity](https://docs.efproject.net/en/latest/modeling/relationships.html#many-to-many).
- * **Alternate inheritance mapping patterns** for relational databases, such as table per type (TPT) and table per concrete type TPC.
-
-* CRUD
- * **Seed data** allows a set of data to be easily upserted.
- * **ETag-style concurrency token support** 
- * **Eager loading rules** allow a default set of related data to always be retrieved when an entity is queried.
- * **Filtered loading** allows a subset of related entities to be loaded.
- * **Simple command interception** provides an easy way to read/write commands before/after they are sent to the database.
-
-* Providers
- * **Azure Table Storage**
- * **Redis**
- * **Other non-relational databases**
