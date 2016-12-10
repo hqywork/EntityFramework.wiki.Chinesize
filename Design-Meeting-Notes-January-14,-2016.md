@@ -2,6 +2,7 @@ UWP, EF, and .NET Native
 ========================
 
 RC2 will bring improved support for EF on Universal Windows Platform.
+RC2 将提高 EF 对 Universal Windows Platform 的支持。
 
 `Scaffold-Directives` powershell command
 ----------------------------------------
@@ -9,6 +10,8 @@ Most .NET Native errors can be resolved by adding the right [runtime directive (
 
 How it generates rdxml
 ----------------------
+如何生成 rdxml
+--------------
 The command compiles the user's project and loads all DbContext types in the project. [`RuntimeTypeDiscoverer`](https://github.com/aspnet/EntityFramework/blob/3b693c7ee789f117c3e1a7f5f2cde8aeb298393c/src/EntityFramework.Commands/Design/Internal/RuntimeTypeDiscoverer.cs) loads the model and executes logic to determine what kinds of generic types may exist at runtime.
 
 One step in this logic is scanning all loaded assemblies for the attribute [`[CallsMakeGenericMethod()]`](https://github.com/aspnet/EntityFramework/blob/3b693c7ee789f117c3e1a7f5f2cde8aeb298393c/src/EntityFramework.Core/Internal/CallsMakeGenericMethodAttribute.cs). This attribute should be declared on all methods that make use of `MakeGenericMethod`. Based on the arguments in the attribute and the user's model, `RuntimeTypeDiscoverer` will attempt to construct the generic method and include the appropriate rdxml for this type.
