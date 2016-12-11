@@ -1,10 +1,13 @@
 # SQL Server value generation scenarios
+# SQL Server 值生成场景
 
 The idea here is to go over common scenarios where real values are generated and see whether the experience makes sense. Cases where everything works are consider first, followed by cases where exceptions are thrown.
 
 ## Positive cases
+## 正面案例
 
 ### Insert with Identity column (default experience)
+### 带有标识列的插入（默认体验）
 
 ```C#
 using (var context = new BlogContext())
@@ -24,6 +27,7 @@ using (var context = new BlogContext())
 ```
 
 ### Insert using sequence-based HiLo pattern
+### 使用基于高低位模式的序列的插入
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -50,9 +54,12 @@ using (var context = new BlogContext())
 
 Notes:
 - Set the default pool size to 1
+- > 设置默认池大小为 1
 - Allow the pool size to be configured in UseSqlServerSequenceHiLo for scaling on web apps
+- > 允许在 UseSqlServerSequenceHiLo 中配置池大小，为了 web 应用上的缩放
 
 ### Use sequence as column default
+### 使用序列作为列的默认值
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -86,9 +93,12 @@ using (var context = new BlogContext())
 
 Notes
 - When creating a sequence explicitly (i.e. not for HiLo) set the increment size to 1 by default
+- >当创建一个明确的序列（不是高低位）时，默认的增量被设置为 1
 - Property can be marked as read-only before save and the behavior is the same, but an exception will be thrown if a value is set explicitly
+- >属性在保存之前可以被设置为只读并且行为是相同的，但如果值被明确设置则会抛出异常
 
 ## Do not use key generation
+## 不使用键生成
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -118,11 +128,13 @@ using (var context = new BlogContext())
 
 Notes
 - Use methods instead of enum to set the store generated pattern:
+- >使用方法替代枚举来设置存储生成模式：
   - ValueGeneratedNever()
   - ValueGeneratedOnAdd()
   - ValueGeneratedOnAddOrUpdate()
 
 ### No key generation changing sentinel
+### 非键生成改变标记
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -189,6 +201,7 @@ Notes
 - Make this work by making the CLR type the source for sentinel selection
 
 ### Column default SQL in non-key column
+### 非键列上的默认 SQL
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -243,6 +256,7 @@ Notes
 - Property can be marked as read-only before save and the behavior is the same, but an exception will be thrown if a value is set explicitly
 
 ### Computed column
+### 计算列
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -284,6 +298,7 @@ Notes
 - Consider allowing a SQL fragment that can be inserted into statement sent by the update pipeline for the column
 
 ### Client-side GUID keys (default behavior)
+### 客户端 GUID 键（默认行为）
 
 ```C#
 Guid afterSave;
@@ -311,6 +326,7 @@ Notes
 - Generates SQL Server sequential GUIDs on the client
 
 ### Server-side GUID generation on insert
+### 在插入时服务器端 GUID 生成
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -347,8 +363,10 @@ Notes
 - Setting DefaultValueSql to anything will cause temporary GUIDs to be generated on the client
 
 ## Negative cases
+## 负面案例
 
 ### Specify keys while using Identity column
+### 当使用标识列时指定了键
 
 ```C#
 using (var context = new BlogContext())
@@ -398,6 +416,7 @@ Notes
 - Make the exception be more helpful as to what is actually going on (insert with sentinel) and what can be done (don't use sentinel, change sentinel, or use nullable CLR types)
 
 ### Insert value when read-only before save is set
+### 当保存前被设置了只读的插入
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -428,6 +447,7 @@ Notes
 - Consider using different term for "sentinel"
 
 ### Insert value into computed column
+### 插入值到计算列
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -452,6 +472,7 @@ using (var context = new BlogContext())
 ```
 
 ### Update value in computed column
+### 更新值到计算列
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
